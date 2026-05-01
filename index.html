@@ -1,126 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jamal Fahadh | ICT & IM Specialist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamal Fahadh Mohamed | ICT Operations & IM Specialist</title>
+    <!-- Standard Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #002D72; /* HALO Trust Blue Aesthetic */
+            --accent: #E56A16; /* Safety Orange */
+            --bg-light: #F8FAFC;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-light); color: var(--text-dark); margin: 0; line-height: 1.6; }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
+        /* Navigation */
+        nav { position: sticky; top: 0; background: var(--primary); color: white; padding: 1rem 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
 
-body {
-    background: #0b0f14;
-    color: #e6edf3;
-    line-height: 1.6;
-}
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, #001A44 100%); color: white; padding: 100px 20px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin: 0; letter-spacing: -1px; }
+        .hero p { font-size: 1.25rem; color: #accbff; max-width: 700px; margin: 20px auto; }
+        .cta-buttons { margin-top: 30px; }
+        .btn { padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; margin: 10px; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-secondary { border: 2px solid white; color: white; }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        section { margin-bottom: 40px; background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        h2 { color: var(--primary); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; font-size: 1.8rem; }
 
-header {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to bottom right, #0b0f14, #111927);
-}
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .skill-card { background: #f1f5f9; padding: 25px; border-radius: 8px; }
+        .skill-card h3 { margin-top: 0; color: var(--primary); }
+        
+        /* Cover Letter Style */
+        .letter-content { font-family: 'Georgia', serif; color: #334155; max-width: 800px; margin: 0 auto; line-height: 1.8; }
 
-.hero {
-    max-width: 700px;
-}
+        /* Project Timeline */
+        .timeline-item { border-left: 2px solid #e2e8f0; padding-left: 20px; margin-bottom: 40px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -9px; top: 0; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; }
+        .date { font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
 
-.hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
-}
+        /* Table */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { text-align: left; padding: 15px; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f8fafc; color: var(--primary); }
 
-.hero h1 span {
-    color: #3b82f6;
-}
+        /* Footer */
+        footer { background: #0f172a; color: white; padding: 60px 20px; text-align: center; }
+        .footer-links a { color: #94a3b8; font-size: 1.5rem; margin: 0 15px; }
 
-.hero p {
-    margin: 20px 0;
-    color: #9ca3af;
-    font-size: 1.1rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #3b82f6;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #2563eb;
-}
-
-section {
-    padding: 80px 0;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.card {
-    background: #111927;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    background: #162032;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.tag {
-    display: inline-block;
-    background: #1f2937;
-    padding: 6px 12px;
-    margin: 5px;
-    border-radius: 5px;
-    font-size: 0.85rem;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    background: #111927;
-    color: #9ca3af;
-}
-</style>
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            section { padding: 20px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<div class="container">
-<div class="hero">
-<h1>Jamal Fahadh <span>Mohamed</span></h1>
-<p>ICT Specialist | Information Management | Field-Ready Systems Engineer</p>
+<nav>
+    <div class="nav-container">
+        <div style="font-weight: 700; font-size: 1.2rem;">JFM PORTFOLIO</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#cover-letter">Cover Letter</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+        </div>
+    </div>
+</nav>
 
-<p>
-Design
+<div class="hero">
+    <h1>JAMAL FAHADH MOHAMED</h1>
+    <p>ICT Operations Specialist & Information Management Lead</p>
+    <p style="font-size: 1rem; opacity: 0.8;">Specializing in Humanitarian Tech Operations across Somaliland & Kenya</p>
+    <div class="cta-buttons">
+        <a href="#cover-letter" class="btn btn-primary">View Cover Letter</a>
+        <a href="cv.pdf" class="btn btn-secondary" target="_blank"><i class="fas fa-file-pdf"></i> Download Full CV (Verbatim)</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="about">
+        <h2><i class="fas fa-user-tie"></i> Executive Mission</h2>
+        <p>Highly analytical **BBIT professional** with over 7 years of experience managing complex digital infrastructures and technical training in Somaliland and Kenya. I specialize in building resilient, secure, and data-driven infrastructures for humanitarian and development organizations, ensuring technology functions effectively in remote or resource-constrained environments.</p>
+        <div class="grid" style="margin-top: 30px;">
+            <div class="skill-card">
+                <i class="fas fa-shield-halved fa-2x" style="color: var(--accent);"></i>
+                <h3>Resilient Infrastructure</h3>
+                <p>Expert in maintaining hardware and software integrity against environmental challenges and cyber threats[cite: 1].</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database fa-2x" style="color: var(--accent);"></i>
+                <h3>Data Integrity</h3>
+                <p>Advanced proficiency in SQL, Database architecture, and information management systems[cite: 1].</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COVER LETTER -->
+    <section id="cover-letter">
+        <h2><i class="fas fa-envelope-open-text"></i> Cover Letter to HALO Trust</h2>
+        <div class="letter-content">
+            <p><strong>To: The Hiring Manager, The HALO Trust (Somaliland)</strong></p>
+            <p>I am writing to express my strong interest in joining The HALO Trust as an ICT professional[cite: 1]. My background is defined by a commitment to operational excellence; during my tenure at Elm High School, I led a digital transformation that secured a malware-free environment for over 7 years[cite: 1].</p>
+            <p>A key highlight of my career was leading the implementation of a centralized Library Management System, achieving an 89% implementation rate[cite: 1]. This project required the meticulous inventory tracking and data organization critical to humanitarian demining operations[cite: 1].</p>
+            <p>I possess a deep understanding of the local context in Hargeisa and Turkana and am ready to apply my expertise in Microsoft 365, SQL, and hardware troubleshooting to support HALO’s life-saving work[cite: 1].</p>
+            <p><strong>Sincerely,<br>Jamal Fahadh Mohamed[cite: 1]</strong></p>
+        </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section id="experience">
+        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+        
+        <div class="timeline-item">
+            <span class="date">SEP 2018 — JUN 2025</span>
+            <h3>ICT Lead & Technical Specialist</h3>
+            <p><strong>Elm High School, Hargeisa, Somaliland[cite: 1]</strong></p>
+            <ul>
+                <li>Managed and maintained the school’s core ICT laboratory, ensuring 100% uptime for hardware and protection against malware[cite: 1].</li>
+                <li>Provided ongoing technical support for teachers and staff, facilitating digital transformation across the institution[cite: 1].</li>
+                <li>Developed detailed ICT schemes of work and implemented project-based learning for digital skills[cite: 1].</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <span class="date">SEP 2021 — JAN 2023</span>
+            <h3>Systems & Resource Coordinator</h3>
+            <p><strong>Elm High School, Hargeisa, Somaliland[cite: 1]</strong></p>
+            <ul>
+                <li>Led the full lifecycle implementation of the Library Management System, achieving an 89% implementation milestone[cite: 1].</li>
+                <li>Cataloged and maintained digital and physical learning resources, ensuring accurate inventory records[cite: 1].</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <span class="date">SEP 2017 — DEC 2017</span>
+            <h3>Computer Systems Technician (Field Support)</h3>
+            <p><strong>Turkana School of Technology, Kenya[cite: 1]</strong></p>
+            <ul>
+                <li>Managed all ICT lab facilities in the remote Turkana region, maintaining hardware safety in high-dust environments[cite: 1].</li>
+                <li>Created and managed the school portal and website, ensuring constant data accuracy[cite: 1].</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SKILLS MATRIX -->
+    <section id="skills">
+        <h2><i class="fas fa-tools"></i> Ultimate Technical Stack</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Competencies & Tools</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Infrastructure</strong></td>
+                    <td>LAN/WAN Troubleshooting, Hardware Repair, Lab Management, Malware Mitigation[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Management</strong></td>
+                    <td>SQL, Advanced Excel (VLOOKUP/Pivot Tables), Database Architecture, IM Systems[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>System Admin</strong></td>
+                    <td>Microsoft 365, Entra ID (Active Directory), Google Workspace, Windows Server[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td><strong>Development</strong></td>
+                    <td>HTML, CSS, Web Development, Adobe Creative Suite, Graphics Design[cite: 1]</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2><i class="fas fa-graduation-cap"></i> Academic Foundation</h2>
+        <div class="grid">
+            <div class="skill-card">
+                <h3>BBIT (Honours)</h3>
+                <p><strong>Jomo Kenyatta University (JKUAT)[cite: 1]</strong></p>
+                <p>Upper Division Honors in Business Information Technology[cite: 1].</p>
+            </div>
+            <div class="skill-card">
+                <h3>E-Commerce & Web Design</h3>
+                <p><strong>East Africa Solution[cite: 1]</strong></p>
+                <p>Professional Certificate attained with Distinction[cite: 1].</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <div class="container">
+        <h2>Ready for Immediate Deployment</h2>
+        <p>Currently in Hargeisa, Somaliland | Open to Global Roles with HALO Trust[cite: 1]</p>
+        <div class="footer-links">
+            <a href="mailto:teacherfahadh@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+252636710907"><i class="fas fa-phone"></i></a>
+            <a href="https://teacherfahadh-ai.github.io/Coach/"><i class="fas fa-globe"></i></a>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Jamal Fahadh Mohamed. Ref Verbatim: Refer to "cv.pdf"[cite: 1]</p>
+    </div>
+</footer>
+
+</body>
+</html>
