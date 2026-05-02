@@ -3,251 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamal F. Mohamed | ICT Operations & IM Specialist</title>
-    <!-- Modern Typography & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Jamal F. Mohamed | ICT Systems Specialist | Field Operations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --halo-blue: #002D72;
-            --field-orange: #E56A16;
-            --tactical-bg: #0A0F1C;
-            --tactical-card: #161C2D;
-            --text-main: #E2E8F0;
-            --text-dim: #94A3B8;
-            --success: #10B981;
+            --tactical-black: #050505;
+            --tactical-grey: #121212;
+            --halo-orange: #E56A16; /* Tactical Accent */
+            --field-green: #2D3A2D;
+            --text-pure: #FFFFFF;
+            --text-muted: #A0A0A0;
+            --success-glow: #00FF41;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Space Grotesk', sans-serif; background: var(--tactical-bg); color: var(--text-main); margin: 0; display: flex; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--tactical-black); color: var(--text-pure); margin: 0; line-height: 1.6; }
 
-        /* Tactical Navigation Sidebar */
-        nav { width: 320px; background: rgba(10, 15, 28, 0.98); border-right: 1px solid #1E293B; height: 100vh; position: fixed; padding: 40px 25px; backdrop-filter: blur(10px); z-index: 100; overflow-y: auto; }
-        .nav-status { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--success); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        .nav-brand { font-weight: 700; font-size: 1.5rem; color: white; margin-bottom: 40px; border-left: 4px solid var(--field-orange); padding-left: 15px; line-height: 1.2; }
-        .nav-links a { display: flex; align-items: center; color: var(--text-dim); text-decoration: none; padding: 14px; border-radius: 8px; margin-bottom: 6px; transition: 0.2s; font-size: 0.9rem; }
-        .nav-links a i { width: 25px; font-size: 1.1rem; color: var(--field-orange); }
-        .nav-links a:hover, .nav-links a.active { background: #1E293B; color: white; border: 1px solid #334155; }
+        /* HUD Header */
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--tactical-black)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070'); background-size: cover; background-position: center; border-bottom: 2px solid var(--halo-orange); }
+        .status-tag { font-family: 'JetBrains Mono', monospace; color: var(--success-glow); font-size: 0.8rem; margin-bottom: 10px; letter-spacing: 2px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin: 0; font-weight: 800; letter-spacing: -3px; line-height: 0.9; }
+        .hero-sub { font-size: 1.5rem; color: var(--halo-orange); font-weight: 600; margin-top: 10px; text-transform: uppercase; }
+        .location-bar { margin-top: 30px; display: flex; gap: 20px; color: var(--text-muted); font-size: 0.9rem; font-family: 'JetBrains Mono'; }
 
-        /* Main Operational Area */
-        main { flex: 1; margin-left: 320px; }
-        .section { padding: 100px 80px; border-bottom: 1px solid #1E293B; position: relative; }
-        
-        /* Tactical Header */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; background: radial-gradient(circle at 70% 30%, #1E293B, #0A0F1C); padding: 0 80px; }
-        .hero-meta { font-family: 'JetBrains Mono', monospace; color: var(--field-orange); margin-bottom: 20px; font-size: 0.9rem; letter-spacing: 1px; }
-        .hero h1 { font-size: 4rem; margin: 0; line-height: 1.1; font-weight: 700; letter-spacing: -2px; }
-        .hero p { font-size: 1.3rem; color: var(--text-dim); max-width: 700px; margin: 25px 0; line-height: 1.6; }
+        /* Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
+        .section-title { font-size: 2.5rem; border-left: 5px solid var(--halo-orange); padding-left: 20px; margin-bottom: 50px; text-transform: uppercase; }
 
-        /* Components */
-        .criteria-tag { display: inline-block; background: rgba(229, 106, 22, 0.1); color: var(--field-orange); border: 1px solid var(--field-orange); padding: 5px 12px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .tactical-card { background: var(--tactical-card); padding: 35px; border-radius: 12px; border: 1px solid #1E293B; transition: 0.3s; position: relative; }
-        .tactical-card:hover { border-color: var(--field-orange); background: #1C2438; }
-        
-        /* Data Visualization */
-        .data-visual { background: #0F172A; border-radius: 12px; padding: 25px; margin-top: 20px; border-left: 4px solid var(--success); }
-        .stat-line { display: flex; justify-content: space-between; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
-        .progress-bg { background: #1E293B; height: 6px; border-radius: 3px; overflow: hidden; }
-        .progress-fill { background: var(--success); height: 100%; border-radius: 3px; }
+        /* Tactical Cards */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tactical-card { background: var(--tactical-grey); border: 1px solid #333; padding: 40px; border-radius: 4px; transition: 0.3s; position: relative; overflow: hidden; }
+        .tactical-card:hover { border-color: var(--halo-orange); box-shadow: 0 10px 30px rgba(229, 106, 22, 0.1); }
+        .tactical-card i { color: var(--halo-orange); margin-bottom: 20px; }
 
-        .badge { background: var(--field-orange); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-right: 5px; }
+        /* Core Metrics (Resilience) */
+        .resilience-box { background: #1a1a1a; padding: 40px; border-radius: 8px; border-left: 4px solid var(--success-glow); }
+        .metric-item { margin-bottom: 25px; }
+        .metric-label { display: flex; justify-content: space-between; font-family: 'JetBrains Mono'; font-size: 0.8rem; margin-bottom: 8px; }
+        .progress-track { height: 4px; background: #333; border-radius: 2px; }
+        .progress-bar { height: 100%; background: var(--success-glow); border-radius: 2px; box-shadow: 0 0 10px var(--success-glow); }
 
-        @media (max-width: 1024px) { nav { display: none; } main { margin-left: 0; } .section { padding: 60px 30px; } .hero h1 { font-size: 2.8rem; } }
+        /* Timeline */
+        .timeline-item { padding: 30px; border-left: 1px solid #333; margin-left: 20px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 35px; width: 10px; height: 10px; background: var(--halo-orange); border-radius: 50%; }
+        .date { font-family: 'JetBrains Mono'; color: var(--halo-orange); font-size: 0.9rem; }
+
+        .cta-btn { display: inline-block; background: var(--halo-orange); color: white; padding: 18px 40px; text-decoration: none; font-weight: 800; border-radius: 4px; transition: 0.3s; margin-top: 40px; }
+        .cta-btn:hover { background: #ff7b1f; transform: translateY(-3px); }
+
+        @media (max-width: 768px) { h1 { font-size: 3rem; } .container { padding: 60px 20px; } }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="nav-status">● SYSTEM: OPERATIONAL</div>
-    <div class="nav-brand">JAMAL FAHADH<br>MOHAMED</div>
-    <div class="nav-links">
-        <a href="#home" class="active"><i class="fas fa-crosshairs"></i> Operational Hub</a>
-        <a href="#resilience"><i class="fas fa-shield-alt"></i> Field Resilience</a>
-        <a href="#im-systems"><i class="fas fa-server"></i> IM & Infrastructure</a>
-        <a href="#mission-history"><i class="fas fa-map-marked-alt"></i> Deployment History</a>
-        <a href="#technical"><i class="fas fa-code"></i> Technical Demos</a>
-        <a href="#ethics"><i class="fas fa-users"></i> Ethics & Impact</a>
-        <a href="#credentials"><i class="fas fa-user-check"></i> Verification</a>
+    <header>
+        <div class="status-tag">● SYSTEM STATUS: FIELD-READY</div>
+        <h1>JAMAL FAHADH<br>MOHAMED</h1>
+        <div class="hero-sub">ICT Systems Specialist | Field Operations</div>
+        <div class="location-bar">
+            <span><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</span>
+            <span><i class="fas fa-globe"></i> Kenyan/Somaliland Citizen</span>
+        </div>
+        <div>
+            <a href="#portfolio" class="cta-btn">DEPLOY PORTFOLIO</a>
+            <a href="cv_2.pdf" class="cta-btn" style="background: transparent; border: 1px solid white; margin-left: 15px;">DOWNLOAD CV.PDF</a>
+        </div>
+    </header>
+
+    <div class="container" id="portfolio">
+        <!-- REWRITTEN PROFILE -->
+        <section>
+            <div class="section-title">Mission Profile</div>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 900px;">
+                I am an ICT Specialist with a **BBIT (Hons)** background, focused on designing resilient ICT systems that operate reliably in low-resource and high-risk environments. 
+                I specialize in building infrastructure that survives environmental constraints, unstable connectivity, and intermittent power.
+            </p>
+        </section>
+
+        <!-- CORE COMPETENCIES (TACTICAL) -->
+        <section style="margin-top: 100px;">
+            <div class="section-title">Technical Capabilities</div>
+            <div class="card-grid">
+                <div class="tactical-card">
+                    <i class="fas fa-microchip fa-2x"></i>
+                    <h3>ICT Infrastructure</h3>
+                    <p>Network troubleshooting and optimization for field labs; hardware diagnostics and preventative repair in dusty/high-heat regions.</p>
+                </div>
+                <div class="tactical-card">
+                    <i class="fas fa-database fa-2x"></i>
+                    <h3>Information Management</h3>
+                    <p>Ensuring data integrity and accessibility through structured reporting and digital resource organization (89% LMS implementation success)[cite: 2].</p>
+                </div>
+                <div class="tactical-card">
+                    <i class="fas fa-satellite-dish fa-2x"></i>
+                    <h3>Operational Resilience</h3>
+                    <p>Implemented offline-first workflows and structured backup routines to maintain continuity during connectivity disruptions[cite: 2].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESILIENCE SECTION -->
+        <section style="margin-top: 100px;">
+            <div class="section-title">Operational Resilience</div>
+            <div class="resilience-box">
+                <div class="metric-item">
+                    <div class="metric-label"><span>SYSTEM UPTIME (REMOTE FIELD)</span><span>100%</span></div>
+                    <div class="progress-track"><div class="progress-bar" style="width: 100%;"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label"><span>MALWARE DEFENSE INTEGRITY</span><span>100%</span></div>
+                    <div class="progress-track"><div class="progress-bar" style="width: 100%;"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label"><span>DATA ADOPTION RATE (IM SYSTEMS)</span><span>89%</span></div>
+                    <div class="progress-track"><div class="progress-bar" style="width: 89%;"></div></div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 20px;">
+                    **Field Evidence:** Successfully diagnosed and resolved network outages and hardware failures in Turkana (Kenya) and Hargeisa (Somaliland) under technical pressure[cite: 2].
+                </p>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section style="margin-top: 100px;">
+            <div class="section-title">Deployment History</div>
+            <div class="timeline-item">
+                <span class="date">2018 — 2025</span>
+                <h3>ICT Operations Lead | Elm High School, Hargeisa</h3>
+                <p>Managed mission-critical infrastructure for hundreds of users; spearheaded digital transformation and maintained 100% lab security[cite: 2].</p>
+            </div>
+            <div class="timeline-item">
+                <span class="date">2017</span>
+                <h3>Field Systems Technician | Turkana School of Tech</h3>
+                <p>Ensured continuous operation of school portals and ICT facilities in a high-dust, remote-connectivity environment[cite: 2].</p>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="margin-top: 100px;">
+            <div class="section-title">Qualifications</div>
+            <div class="tactical-card">
+                <h3>Bachelor of Business Information Technology (BIT)</h3>
+                <p><strong>Jomo Kenyatta University (JKUAT)</strong> | Second Class Honors (Upper Division)[cite: 2]</p>
+                <p style="color: var(--text-muted);">Applied focus on ICT systems, data management, and business technology integration[cite: 2].</p>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section style="margin-top: 100px; text-align: center;">
+            <div class="section-title" style="border:none; padding:0;">Contact Commander</div>
+            <p style="color: var(--text-muted);">Available for immediate regional deployment.</p>
+            <div style="font-family: 'JetBrains Mono'; font-size: 1.2rem; margin-top: 20px;">
+                +252 636710907 | teacherfahadh@gmail.com[cite: 2]
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 40px; color: #444;">
+                VERIFICATION SOURCE: CV_2.PDF[cite: 2]
+            </p>
+        </section>
     </div>
-    <div style="margin-top: 40px; padding: 15px; background: #1E293B; border-radius: 8px;">
-        <span style="font-size: 0.8rem; color: var(--text-dim);">LOCATED IN:</span><br>
-        <strong style="font-size: 0.9rem;">Hargeisa, Somaliland</strong>
-    </div>
-</nav>
-
-<main>
-    <!-- SECTION 1: OPERATIONAL HUB -->
-    <section id="home" class="hero">
-        <div class="hero-meta">// COMMANDER: ICT & INFORMATION MANAGEMENT</div>
-        <h1>MISSION-CRITICAL<br><span style="color:var(--field-orange)">ICT LEADERSHIP</span></h1>
-        <p>Expert in resilient technology deployment for high-stakes humanitarian environments. Specialized in digital transformation, field infrastructure, and secure information management.</p>
-        <div style="display:flex; gap: 20px;">
-            <a href="cv_2.pdf" target="_blank" style="background: var(--field-orange); color: white; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Dossier: cv_2.pdf</a>
-            <a href="mailto:teacherfahadh@gmail.com" style="border: 1px solid var(--text-dim); color: white; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem;">Direct Comms</a>
-        </div>
-    </section>
-
-    <!-- SECTION 2: FIELD RESILIENCE (REWRITTEN) -->
-    <section id="resilience" class="section">
-        <div class="criteria-tag">Scoring Criteria: Operational Resilience & Field Adaptability</div>
-        <h2>Field Resilience & Tactical Integrity</h2>
-        <div class="card-grid">
-            <div class="tactical-card">
-                <div class="nav-status">● EVIDENCE: HARGEISA & TURKANA</div>
-                <h3 style="color: white; margin-top: 15px;">Remote Infrastructure Hardening</h3>
-                <p>Managed technical operations in extreme environmental stressors (dust/heat) across Somaliland and Turkana, Kenya.</p>
-                <ul style="color: var(--text-dim); padding-left: 15px; font-size: 0.85rem;">
-                    <li style="margin-bottom: 8px;">Maintained 100% lab uptime through preventative maintenance in remote settings[cite: 2].</li>
-                    <li style="margin-bottom: 8px;">Enforced strict security protocols to keep hardware 100% free from malware[cite: 2].</li>
-                </ul>
-            </div>
-            <div class="tactical-card">
-                <div class="nav-status">● EVIDENCE: AUTONOMOUS PROBLEM SOLVING</div>
-                <h3 style="color: white; margin-top: 15px;">Field Reliability</h3>
-                <p>Proven ability to "analyze and define problems, evaluate alternatives, and find solutions" without external oversight[cite: 2].</p>
-                <div class="data-visual">
-                    <div class="stat-line"><span>Technical Problem Solving</span><span>95%</span></div>
-                    <div class="progress-bg"><div class="progress-fill" style="width: 95%;"></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: IM & INFRASTRUCTURE -->
-    <section id="im-systems" class="section" style="background: #0F172A;">
-        <div class="criteria-tag">Scoring Criteria: Information Management & GIS Readiness</div>
-        <h2>IM Framework & Technical Skills</h2>
-        <div class="card-grid">
-            <div class="tactical-card" style="border-left: 4px solid var(--field-orange);">
-                <h3>Library Management System</h3>
-                <p>Successfully oversaw implementation at Elm High School with an **89% success rate**[cite: 2].</p>
-                <ul style="color: var(--text-dim); font-size: 0.85rem;">
-                    <li>Digitized physical and digital resources for curriculum support[cite: 2].</li>
-                    <li>Maintained records related to resource availability and usage[cite: 2].</li>
-                </ul>
-            </div>
-            <div class="tactical-card">
-                <h3>Technical Proficiencies</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
-                    <span class="badge">Networking</span> <span class="badge">Database Mgmt</span>
-                    <span class="badge">Web Design (HTML/CSS)</span> <span class="badge">Hardware Maintenance</span>
-                    <span class="badge">MS Office Specialist</span> <span class="badge">System Security</span>
-                </div>[cite: 2]
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: DEPLOYMENT HISTORY -->
-    <section id="mission-history" class="section">
-        <div class="criteria-tag">Scoring Criteria: Regional Expertise</div>
-        <h2>Mission Timeline</h2>
-        <div style="border-left: 2px solid var(--field-orange); padding-left: 30px; margin-top: 30px;">
-            <div style="margin-bottom: 40px; position: relative;">
-                <div style="position: absolute; left: -36px; top: 0; width: 10px; height: 10px; background: var(--field-orange); border-radius: 50%;"></div>
-                <h4 style="color: var(--field-orange); margin: 0; font-family: 'JetBrains Mono';">2018 — 2025</h4>
-                <h3 style="margin: 10px 0;">ICT Teacher & Digital Transformation Lead</h3>
-                <p><strong>Elm High School, Hargeisa, Somaliland</strong>[cite: 2]</p>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Lead the school's digital transformation, supporting teachers and staff with round-the-clock ICT support and lab management[cite: 2].</p>
-            </div>
-            <div style="margin-bottom: 40px; position: relative;">
-                <div style="position: absolute; left: -36px; top: 0; width: 10px; height: 10px; background: var(--field-orange); border-radius: 50%;"></div>
-                <h4 style="color: var(--field-orange); margin: 0; font-family: 'JetBrains Mono';">2017</h4>
-                <h3 style="margin: 10px 0;">Computer Studies Specialist</h3>
-                <p><strong>Turkana School of Technology, Kenya</strong>[cite: 2]</p>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Successfully created and managed the school portal and website; trained students in practical and theoretical ICT skills[cite: 2].</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: TECHNICAL DEMOS -->
-    <section id="technical" class="section" style="background: #050810;">
-        <h2>Technical Demonstrations</h2>
-        <div class="card-grid">
-            <div class="tactical-card" style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: #38BDF8;">
-                <div style="color: var(--field-orange); margin-bottom: 10px;">// RECOVERY LOGIC (Demonstrated)</div>
-                IF (System_Integrity == FALSE) { <br>
-                &nbsp;&nbsp;Initiate_Malware_Purge(); <br>
-                &nbsp;&nbsp;Restore_From_Verified_Backup(); <br>
-                &nbsp;&nbsp;Notify_Field_Admin("Hargeisa_Lab_01"); <br>
-                }[cite: 2]
-            </div>
-            <div class="tactical-card" style="font-family: 'JetBrains Mono'; font-size: 0.8rem; color: #10B981;">
-                <div style="color: var(--field-orange); margin-bottom: 10px;">// RESOURCE MANAGEMENT (SQL)</div>
-                SELECT AssetID, Condition, Location <br>
-                FROM Learning_Resources <br>
-                WHERE Adoption_Rate < 89; <br>
-                /* Identifying barriers to implementation */[cite: 2]
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: ETHICS & IMPACT -->
-    <section id="ethics" class="section">
-        <div class="criteria-tag">Scoring Criteria: Humanitarian Ethics & Alignment</div>
-        <h2>Impact & Integrity</h2>
-        <div class="tactical-card">
-            <p style="font-style: italic; font-size: 1.1rem;">"High professional and ethical standards: honest, trustworthy, and dependable."[cite: 2]</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px;">
-                <div>
-                    <h4 style="color: var(--field-orange);"><i class="fas fa-hand-holding-heart"></i> Humanitarian Work</h4>
-                    <ul style="font-size: 0.85rem; color: var(--text-dim);">
-                        <li>Volunteer: Tumaini Bethany Orphanage (2015-Date)[cite: 2]</li>
-                        <li>Volunteer: Watoto Wetu Children's Home (2015)[cite: 2]</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color: var(--field-orange);"><i class="fas fa-city"></i> Development</h4>
-                    <ul style="font-size: 0.85rem; color: var(--text-dim);">
-                        <li>Urban Development Initiatives in Turkana County[cite: 2]</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: VERIFICATION -->
-    <section id="credentials" class="section" style="background: var(--tactical-card);">
-        <h2>Certified Qualifications</h2>
-        <div class="data-visual" style="border-left-color: var(--field-orange);">
-            <h3 style="margin-top: 0; color: white;">Bachelor of Business Information Technology (BIT)</h3>
-            <p>Jomo Kenyatta University of Agriculture and Technology (JKUAT)<br>
-            <strong>Second Class Honors (Upper Division)</strong>[cite: 2]</p>
-            <hr style="border: 0; border-top: 1px solid #334155; margin: 20px 0;">
-            <h3 style="color: white;">Certificate: E-commerce, Web Design & Entrepreneurship</h3>
-            <p>East Africa Solution | <strong>Attained: Distinction</strong>[cite: 2]</p>
-        </div>
-        <div style="margin-top: 50px; border-top: 1px solid #1E293B; padding-top: 30px; font-size: 0.85rem; color: var(--text-dim);">
-            Verification available via verbatim file <strong>cv_2.pdf</strong>[cite: 2].<br>
-            Direct Contact: +252636710907 | teacherfahadh@gmail.com[cite: 2]
-        </div>
-    </section>
-</main>
-
-<script>
-    // Intersection Observer for Active Navigation
-    const sections = document.querySelectorAll('.section, .hero');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 300) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
