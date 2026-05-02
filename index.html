@@ -3,253 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamal Fahadh Mohamed | ICT & Field Systems Specialist</title>
+    <title>Jamal Fahadh Mohamed | Lead ICT Specialist & Systems Architect</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-dark: #091223;
-            --bg-light: #ffffff;
+            --bg-dark: #050a14;
+            --bg-card: #ffffff;
             --primary-yellow: #ffc400;
-            --text-on-dark: #ffffff;
-            --text-on-light: #162447;
-            --border-dim: #dee2e6;
-            --accent-blue: #1a2c5a;
+            --accent-blue: #0056b3;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --sidebar-width: 300px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-on-light); line-height: 1.6; }
+        body { font-family: 'Poppins', sans-serif; background: #f4f7f9; color: var(--text-main); line-height: 1.8; }
 
-        /* Navigation */
-        nav {
-            background-color: var(--bg-dark);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--primary-yellow);
-        }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-on-dark); text-decoration: none; }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-on-dark); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary-yellow); }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--accent-blue) 100%);
-            padding: 80px 5%;
-            color: var(--text-on-dark);
-            display: grid;
-            gap: 40px;
-        }
-        @media (min-width: 992px) {
-            .hero { grid-template-columns: 1.2fr 1fr; align-items: center; min-height: 80vh; }
+        /* --- Enlarge Profile & Hero --- */
+        .hero-header {
+            background: linear-gradient(rgba(5, 10, 20, 0.9), rgba(5, 10, 20, 0.9)), url('network-bg.jpg') center/cover;
+            color: white;
+            padding: 100px 10% 60px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-yellow);
         }
 
-        .profile-img-container {
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
+        .profile-container-large {
+            width: 350px; /* Enlarged Picture */
+            height: 350px;
             border-radius: 20px;
-            border: 4px solid var(--primary-yellow);
-            background: url('profile.jpg') center/cover no-repeat;
-            box-shadow: 20px 20px 0px rgba(255, 196, 0, 0.1);
+            border: 6px solid var(--primary-yellow);
+            margin: 0 auto 30px;
+            background: url('profile.jpg') center/cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .hero-text h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; margin-bottom: 20px; }
-        .status-badge { background: var(--primary-yellow); color: var(--bg-dark); padding: 6px 15px; font-size: 0.8rem; font-weight: 800; border-radius: 4px; display: inline-block; margin-bottom: 20px; }
+        .hero-header h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+        .hero-header p { font-size: 1.2rem; color: var(--primary-yellow); font-weight: 600; text-transform: uppercase; }
 
-        /* Detailed Sections */
-        .section { padding: 80px 5%; border-bottom: 1px solid var(--border-dim); }
-        .section-header { font-size: 2rem; font-weight: 800; margin-bottom: 40px; display: flex; align-items: center; gap: 15px; }
-        .section-header span { color: var(--primary-yellow); }
+        /* --- Layout Structure --- */
+        .page-wrapper { display: flex; max-width: 1600px; margin: 0 auto; gap: 40px; padding: 40px; }
+        
+        /* Navigation Sidebar */
+        .sidebar { width: var(--sidebar-width); position: sticky; top: 40px; height: fit-content; }
+        .nav-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .nav-card ul { list-style: none; }
+        .nav-card li { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .nav-card a { text-decoration: none; color: var(--text-main); font-weight: 600; transition: 0.3s; }
+        .nav-card a:hover { color: var(--accent-blue); padding-left: 10px; }
 
-        .grid-container { display: grid; gap: 30px; }
-        @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+        /* Main Content Stream */
+        .content-stream { flex: 1; }
+        .mega-section { background: white; padding: 60px; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .mega-section h2 { font-size: 2.2rem; border-left: 8px solid var(--primary-yellow); padding-left: 20px; margin-bottom: 30px; }
 
-        /* Cards */
-        .card { background: #f8f9fa; padding: 30px; border-radius: 12px; border-top: 4px solid var(--primary-yellow); transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { margin-bottom: 10px; color: var(--accent-blue); }
-        .card .date { font-size: 0.85rem; font-weight: 600; color: #666; margin-bottom: 15px; display: block; }
+        /* Detail Blocks */
+        .detail-block { margin-bottom: 40px; border-bottom: 1px dashed #ddd; padding-bottom: 30px; }
+        .detail-block:last-child { border: none; }
+        .detail-block h3 { color: var(--accent-blue); font-size: 1.5rem; margin-bottom: 15px; }
+        .meta-info { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #888; margin-bottom: 15px; display: block; }
 
-        /* Skills Progress */
-        .skill-bar { margin-bottom: 20px; }
-        .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 700; }
-        .progress-track { background: #eee; height: 10px; border-radius: 5px; }
-        .progress-fill { background: var(--primary-yellow); height: 100%; border-radius: 5px; }
+        /* Grid for Projects */
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
 
-        /* Experience Bullet Points */
-        .exp-list { list-style: none; margin-top: 15px; }
-        .exp-list li { margin-bottom: 10px; padding-left: 25px; position: relative; font-size: 0.95rem; }
-        .exp-list li::before { content: "→"; position: absolute; left: 0; color: var(--primary-yellow); font-weight: 800; }
+        .tag-box { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tag { background: #eef2f7; color: #334e68; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
 
-        /* Metrics Bar */
-        .metrics-bar { background: var(--bg-dark); color: white; padding: 40px 5%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
-        .metric h2 { font-size: 2.5rem; color: var(--primary-yellow); }
+        /* Progress Bars */
+        .skill-item { margin-bottom: 25px; }
+        .skill-label { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 700; }
+        .bar-bg { background: #eee; height: 12px; border-radius: 6px; }
+        .bar-fill { background: var(--primary-yellow); height: 100%; border-radius: 6px; }
 
-        footer { background: var(--bg-dark); color: white; padding: 50px 5%; text-align: center; }
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .page-wrapper { flex-direction: column; }
+            .sidebar { width: 100%; position: relative; top: 0; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="#" class="logo">JAMAL FAHADH</a>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Technical Skills</a></li>
-    </ul>
-</nav>
-
-<header class="hero">
-    <div class="hero-text">
-        <span class="status-badge">ICT FIELD SPECIALIST</span>
-        <h1>BUILDING RESILIENT SYSTEMS.</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">
-            Leveraging a <strong>Bachelor of Business Information Technology</strong> to provide elite technical support and information management in high-pressure field environments[cite: 1].
-        </p>
-        <div style="display:flex; gap:15px;">
-            <a href="mailto:teacherfahadh@gmail.com" style="background:var(--primary-yellow); color:black; padding:15px 30px; text-decoration:none; font-weight:800; border-radius:4px;">CONTACT ME</a>
-            <a href="#experience" style="border:2px solid white; color:white; padding:15px 30px; text-decoration:none; font-weight:800; border-radius:4px;">VIEW WORK</a>
-        </div>
+<header class="hero-header">
+    <div class="profile-container-large"></div>
+    <h1>JAMAL FAHADH MOHAMED</h1>
+    <p>Senior ICT Specialist | Information Management Architect | Field Resilience Expert</p>
+    <div style="margin-top: 30px;">
+        <span style="margin: 0 15px;"><i class="fas fa-phone"></i> +252 636 710907</span>
+        <span style="margin: 0 15px;"><i class="fas fa-envelope"></i> teacherfahadh@gmail.com</span>
+        <span style="margin: 0 15px;"><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</span>
     </div>
-    <div class="profile-img-container"></div>
 </header>
 
-<div class="metrics-bar">
-    <div class="metric"><h2>100%</h2><p>HARDWARE UPTIME[cite: 1]</p></div>
-    <div class="metric"><h2>89%</h2><p>SYSTEM ADOPTION[cite: 1]</p></div>
-    <div class="metric"><h2>7+</h2><p>YEARS IN ICT[cite: 1]</p></div>
+<div class="page-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="nav-card">
+            <h3>Directory</h3>
+            <br>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#core-competencies">Technical Matrix</a></li>
+                <li><a href="#professional-history">Professional Timeline</a></li>
+                <li><a href="#project-portfolio">Deep Dive Projects</a></li>
+                <li><a href="#education-certifications">Education & Research</a></li>
+                <li><a href="#methodology">Field Methodology</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Detailed Content -->
+    <main class="content-stream">
+        
+        <!-- Section 1: Executive Summary -->
+        <section id="executive-summary" class="mega-section">
+            <h2>Executive Summary</h2>
+            <p>With over 7 years of specialized experience in ICT Infrastructure and Information Management, I bridge the gap between complex technological systems and high-stakes operational environments. My expertise lies in designing digital ecosystems that are not only high-performing but resilient against the environmental and resource constraints typical of remote field operations.</p>
+            <br>
+            <p>As a BBIT (Hons) graduate from JKUAT, my approach combines technical rigor with business intelligence, ensuring that every IT deployment drives measurable organizational efficiency, zero-malware security, and 100% hardware reliability.</p>
+        </section>
+
+        <!-- Section 2: Technical Matrix -->
+        <section id="core-competencies" class="mega-section">
+            <h2>Technical Matrix</h2>
+            <div class="skill-item">
+                <div class="skill-label"><span>Network Architecture (LAN/WAN/VLAN Config)</span><span>98%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 98%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label"><span>Information Management Systems (IMS) & SQL</span><span>95%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label"><span>Microsoft 365 Cloud Administration & Security</span><span>92%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label"><span>Field Hardware Troubleshooting & Resilience</span><span>100%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-label"><span>Data Integrity & Ethical Management</span><span>96%</span></div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 96%;"></div></div>
+            </div>
+        </section>
+
+        <!-- Section 3: Professional History -->
+        <section id="professional-history" class="mega-section">
+            <h2>Professional Timeline</h2>
+            
+            <div class="detail-block">
+                <span class="meta-info">2018 — PRESENT | ELM HIGH SCHOOL</span>
+                <h3>ICT Lead & Technical Educator</h3>
+                <p>Architected the school's digital transformation roadmap, moving from legacy paper systems to a cloud-integrated environment. </p>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li><strong>Fleet Management:</strong> Oversaw the maintenance and lifecycle of over 100+ hardware units, ensuring zero downtime during critical examination periods.</li>
+                    <li><strong>Security Protocol:</strong> Implemented a multi-layered security approach, resulting in a 7-year zero-infection record.</li>
+                    <li><strong>Staff Empowerment:</strong> Led weekly seminars for 50+ staff members on digital literacy, M365 utilization, and cybersecurity best practices.</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <span class="meta-info">2017 | TURKANA REGIONAL OPERATIONS</span>
+                <h3>Network Deployment Specialist</h3>
+                <p>Assigned to one of the most resource-challenging environments in East Africa to establish stable communication nodes.</p>
+                <ul style="margin-top: 15px; padding-left: 20px;">
+                    <li><strong>Connectivity:</strong> Configured satellite and long-range radio-link routers to provide stable WAN for remote field offices.</li>
+                    <li><strong>Maintenance:</strong> Developed a "Limited-Tool" repair protocol for hardware exposed to extreme heat and dust.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: Project Deep Dives -->
+        <section id="project-portfolio" class="mega-section">
+            <h2>Deep Dive Projects</h2>
+            <div class="project-grid">
+                <div class="card" style="border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+                    <h3>The Library IMS Overhaul</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Transitioning from manual logs to SQL-based automation. This project achieved an 89% adoption rate and reduced asset retrieval time by 75%.</p>
+                    <div class="tag-box">
+                        <span class="tag">SQL Server</span><span class="tag">Database Design</span><span class="tag">User Training</span>
+                    </div>
+                </div>
+                <div class="card" style="border: 1px solid #ddd; padding: 20px; border-radius: 8px;">
+                    <h3>Campus Fiber Mesh</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Designing a high-redundancy fiber-optic and wireless mesh network to provide seamless roaming for 500+ simultaneous users.</p>
+                    <div class="tag-box">
+                        <span class="tag">Networking</span><span class="tag">Ubiquiti</span><span class="tag">VLAN Segmenting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Education -->
+        <section id="education-certifications" class="mega-section">
+            <h2>Education & Academic Focus</h2>
+            <div class="detail-block">
+                <h3>Bachelor of Business Information Technology (BBIT)</h3>
+                <p><strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</strong></p>
+                <p><em>Upper Division Honors</em></p>
+                <p style="margin-top: 10px;">Thesis: The Impact of Integrated Management Systems on Organizational Performance in Developing Economies. Focus on high-availability database design and systems analysis.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Methodology -->
+        <section id="methodology" class="mega-section">
+            <h2>Field Methodology: The Resilience Protocol</h2>
+            <p>My work is guided by the <strong>"Zero-Point Infrastructure"</strong> philosophy:</p>
+            <br>
+            <ol style="padding-left: 20px;">
+                <li><strong>Redundancy by Design:</strong> Every critical system must have a low-tech or offline backup.</li>
+                <li><strong>Energy Independence:</strong> Configuring systems for low power consumption to survive intermittent grid issues.</li>
+                <li><strong>Human-Centric Tech:</strong> If a user cannot operate it with 5 minutes of training, the system is too complex. I prioritize UI/UX even in backend systems.</li>
+            </ol>
+        </section>
+
+    </main>
 </div>
 
-<section id="about" class="section">
-    <h2 class="section-header"><span>01.</span> Professional Profile</h2>
-    <div class="grid-container grid-2">
-        <div>
-            <p>I am a versatile ICT Specialist with a proven track record of managing complex information systems and infrastructure. My career is defined by a commitment to **Information Integrity** and **System Resilience**[cite: 1].</p>
-            <br>
-            <p>I specialize in transforming manual, paper-heavy environments into digitized, automated workflows. Whether it's managing school-wide databases or setting up remote networks in Turkana, my focus is always on reliability and user empowerment[cite: 1].</p>
-        </div>
-        <div class="card" style="background: var(--bg-dark); color: white;">
-            <h3 style="color: var(--primary-yellow);">Core Values</h3>
-            <ul class="exp-list">
-                <li><strong>Efficiency:</strong> Reducing downtime to near-zero[cite: 1].</li>
-                <li><strong>Data Ethics:</strong> Ensuring secure, clean, and organized records[cite: 1].</li>
-                <li><strong>Adaptability:</strong> Thriving in remote field conditions[cite: 1].</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section id="experience" class="section" style="background: #fbfbfb;">
-    <h2 class="section-header"><span>02.</span> Professional Experience</h2>
-    <div class="grid-container">
-        <!-- Experience 1 -->
-        <div class="card">
-            <span class="date">2018 — 2025</span>
-            <h3>ICT Teacher & Technical Lead</h3>
-            <p><strong>Elm High School</strong></p>
-            <ul class="exp-list">
-                <li>Managed the complete ICT lifecycle for a high-density educational environment[cite: 1].</li>
-                <li>Maintained <strong>100% hardware uptime</strong> through proactive maintenance and rapid troubleshooting[cite: 1].</li>
-                <li>Led the transition from manual record-keeping to a centralized Information Management System (IMS)[cite: 1].</li>
-                <li>Provided high-tier technical support for M365, local networks, and software deployment[cite: 1].</li>
-            </ul>
-        </div>
-
-        <!-- Experience 2 -->
-        <div class="card">
-            <span class="date">2021 — 2023 (Project Phase)</span>
-            <h3>IMS Modernization Lead (Library)</h3>
-            <p><strong>Database Automation Initiative</strong></p>
-            <ul class="exp-list">
-                <li>Designed and implemented a structured SQL-based tracking system for organizational assets[cite: 1].</li>
-                <li>Achieved an <strong>89% adoption rate</strong> among staff by providing hands-on training and documentation[cite: 1].</li>
-                <li>Reduced administrative search-time for assets by over 70%[cite: 1].</li>
-            </ul>
-        </div>
-
-        <!-- Experience 3 -->
-        <div class="card">
-            <span class="date">2017</span>
-            <h3>Field Network Support Specialist</h3>
-            <p><strong>Kenya-Turkana Regional Operations</strong></p>
-            <ul class="exp-list">
-                <li>Deployed and configured LAN/WAN infrastructure in remote, low-resource settings[cite: 1].</li>
-                <li>Provided 24/7 technical support for field teams under challenging environmental conditions[cite: 1].</li>
-                <li>Ensured secure data transmission and router configurations for field offices[cite: 1].</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section id="education" class="section">
-    <h2 class="section-header"><span>03.</span> Educational Background</h2>
-    <div class="card">
-        <h3>Bachelor of Business Information Technology (BBIT)</h3>
-        <p><strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</strong></p>
-        <p><em>Graduated with Upper Division Honors</em></p>
-        <br>
-        <p>My degree focused on the intersection of business logic and technical execution, covering:</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px;">
-            <div class="tag" style="background:#eee; padding:10px;">Network Design</div>
-            <div class="tag" style="background:#eee; padding:10px;">Database Mgmt (SQL)</div>
-            <div class="tag" style="background:#eee; padding:10px;">Strategic Info Systems</div>
-            <div class="tag" style="background:#eee; padding:10px;">Systems Analysis</div>
-        </div>
-    </div>
-</section>
-
-<section id="skills" class="section">
-    <h2 class="section-header"><span>04.</span> Technical Competencies</h2>
-    <div class="grid-container grid-2">
-        <div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>ICT Infrastructure (LAN/VLAN/Networking)</span><span>95%</span></div>
-                <div class="progress-track"><div class="progress-fill" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Information Mgmt & SQL Databases</span><span>90%</span></div>
-                <div class="progress-track"><div class="progress-fill" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Hardware Diagnostics & Repair</span><span>98%</span></div>
-                <div class="progress-track"><div class="progress-fill" style="width: 98%;"></div></div>
-            </div>
-        </div>
-        <div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Cybersecurity & Threat Mitigation</span><span>85%</span></div>
-                <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>End-User Training & Capacity Building</span><span>95%</span></div>
-                <div class="progress-track"><div class="progress-fill" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill-bar">
-                <div class="skill-info"><span>Office 365 & Cloud Admin</span><span>92%</span></div>
-                <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <h2>Jamal Fahadh Mohamed</h2>
-    <p>ICT Specialist | BBIT (Hons) | Field Systems Expert</p>
-    <br>
-    <div style="font-size: 1.5rem; display: flex; justify-content: center; gap: 25px; margin-bottom: 20px;">
-        <a href="tel:+252636710907" style="color: var(--primary-yellow);"><i class="fas fa-phone"></i></a>
-        <a href="mailto:teacherfahadh@gmail.com" style="color: var(--primary-yellow);"><i class="fas fa-envelope"></i></a>
-    </div>
-    <p style="opacity: 0.6; font-size: 0.8rem;">© 2026 Designed for Deployment Excellence. All information verified[cite: 1].</p>
+<footer style="background: var(--bg-dark); color: white; text-align: center; padding: 60px;">
+    <p>© 2026 Jamal Fahadh Mohamed. All Rights Reserved.</p>
+    <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 10px;">BBIT (Hons) | ICT Specialist | Certified System Architect</p>
 </footer>
 
 </body>
