@@ -3,267 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamal Fahadh Mohamed | Senior ICT Systems Architect & Field Strategist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Jamal Fahadh Mohamed | ICT Specialist Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #ffc400;
-            --secondary: #00e5ff;
-            --bg-deep: #05080f;
-            --bg-surface: #0d121f;
-            --bg-card: #161c2d;
-            --text-high: #ffffff;
-            --text-mid: #a0aec0;
-            --border: rgba(255, 255, 255, 0.08);
-            --sidebar-width: 320px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-deep); color: var(--text-high); line-height: 1.8; overflow-x: hidden; }
-
-        /* --- NAVIGATION SIDEBAR (The "Index" feel) --- */
-        .master-grid { display: flex; min-height: 100vh; }
-        
-        .sidebar-index { 
-            width: var(--sidebar-width); 
-            background: var(--bg-surface); 
-            border-right: 1px solid var(--border);
-            padding: 40px;
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        .sidebar-index h3 { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--primary); letter-spacing: 2px; margin-bottom: 30px; }
-        .index-link { display: block; text-decoration: none; color: var(--text-mid); font-size: 0.9rem; margin-bottom: 18px; transition: 0.3s; border-left: 2px solid transparent; padding-left: 15px; }
-        .index-link:hover { color: var(--primary); border-left: 2px solid var(--primary); }
-
-        /* --- MAIN CONTENT AREA --- */
-        .main-content { margin-left: var(--sidebar-width); flex: 1; padding: 0; }
-
-        /* --- MASSIVE PROFILE HEADER --- */
-        .hero-banner { 
-            height: 100vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 0 10%; 
-            background: radial-gradient(circle at 10% 10%, rgba(255, 196, 0, 0.05) 0%, transparent 50%);
-        }
-
-        .hero-container-xl { display: grid; grid-template-columns: 550px 1fr; gap: 80px; align-items: center; width: 100%; max-width: 1600px; }
-        
-        .profile-mega-frame {
-            width: 550px; /* ENLARGED: 30-page impact size */
-            height: 700px;
-            background: url('profile.jpg') center/cover no-repeat;
-            border-radius: 4px;
-            border: 2px solid var(--primary);
-            position: relative;
-            box-shadow: 40px 40px 0px -10px var(--bg-card), 40px 40px 0px 0px var(--primary);
-        }
-
-        .hero-text h1 { font-size: 5rem; font-weight: 900; line-height: 1; margin-bottom: 20px; }
-        .hero-text .subtitle { font-family: 'JetBrains Mono', monospace; color: var(--primary); font-size: 1.2rem; display: block; margin-bottom: 40px; }
-
-        /* --- DETAILED TECHNICAL SECTIONS (PAGE-BY-PAGE FEEL) --- */
-        .dossier-section { padding: 120px 10%; border-bottom: 1px solid var(--border); }
-        .page-num { font-family: 'JetBrains Mono', monospace; color: var(--text-mid); opacity: 0.3; font-size: 3rem; font-weight: 900; }
-        .section-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 50px; line-height: 1.1; }
-
-        .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .tech-item { background: var(--bg-card); padding: 40px; border-radius: 12px; border-bottom: 4px solid transparent; transition: 0.3s; }
-        .tech-item:hover { transform: translateY(-10px); border-bottom: 4px solid var(--primary); }
-        .tech-item h4 { font-size: 1.3rem; margin-bottom: 20px; color: var(--primary); }
-
-        /* --- SIMULATED INFOGRAPHIC: SYSTEM ARCHITECTURE --- */
-        .arch-diagram {
-            border: 2px solid var(--border);
-            padding: 60px;
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.02);
-        }
-        .node { width: 150px; }
-        .node i { font-size: 3rem; color: var(--secondary); margin-bottom: 15px; display: block; }
-        .connector { height: 2px; background: var(--border); flex: 1; margin-top: 40px; position: relative; }
-        .connector::after { content: '➔'; color: var(--primary); position: absolute; right: -5px; top: -11px; }
-
-        /* --- EXTENDED PROJECT LOGS --- */
-        .log-entry { margin-bottom: 100px; }
-        .log-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--primary); padding-bottom: 15px; margin-bottom: 30px; }
-        .log-title { font-size: 2rem; font-weight: 800; }
-        .log-date { font-family: 'JetBrains Mono', monospace; color: var(--text-mid); }
-
-        .data-list { list-style: none; margin-top: 25px; }
-        .data-list li { margin-bottom: 15px; padding-left: 30px; position: relative; }
-        .data-list li::before { content: '0x0'; position: absolute; left: 0; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: bold; }
-
-        footer { padding: 100px 10%; background: #000; text-align: center; }
-
-        @media (max-width: 1200px) {
-            .sidebar-index { display: none; }
-            .main-content { margin-left: 0; }
-            .hero-container-xl { grid-template-columns: 1fr; }
-            .profile-mega-frame { width: 100%; height: 500px; }
-            .tech-grid { grid-template-columns: 1fr; }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0b1120; color: #ffffff; }
+        .accent-yellow { color: #facc15; }
+        .bg-accent-yellow { background-color: #facc15; }
+        .bg-dark-card { background-color: #1e293b; }
+        .border-accent { border-color: #facc15; }
+        .gradient-bg { background: radial-gradient(circle at 70% 30%, #1e40af 0%, #0b1120 70%); }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-<div class="master-grid">
-    <!-- Sidebar Index -->
-    <nav class="sidebar-index">
-        <h3>SYSTEM INDEX</h3>
-        <a href="#hero" class="index-link">01. COMMAND INTERFACE</a>
-        <a href="#summary" class="index-link">02. EXECUTIVE SUMMARY</a>
-        <a href="#infrastructure" class="index-link">03. NETWORK INFRASTRUCTURE</a>
-        <a href="#databases" class="index-link">04. DATABASE ARCHITECTURE</a>
-        <a href="#field-resilience" class="index-link">05. FIELD RESILIENCE DEPLOYMENT</a>
-        <a href="#history" class="index-link">06. PROFESSIONAL CHRONICLE</a>
-        <a href="#education" class="index-link">07. ACADEMIC SPECIFICATIONS</a>
-        <a href="#ethics" class="index-link">08. GOVERNANCE & ETHICS</a>
-        <br>
-        <h3>CONTACT NODES</h3>
-        <div style="font-size: 0.8rem; color: var(--text-mid);">
-            TEL: +252 636 710907<br>
-            EML: teacherfahadh@gmail.com<br>
-            LOC: Hargeisa, Somaliland
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-[#0b1120]/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-accent-yellow text-black font-bold p-1 rounded">JF</div>
+                <span class="font-bold hidden md:inline">Jamal Fahadh Mohamed[cite: 1]</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider">
+                <a href="#about" class="hover:text-yellow-400 transition">About</a>
+                <a href="#experience" class="hover:text-yellow-400 transition">Experience</a>
+                <a href="#skills" class="hover:text-yellow-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-yellow-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
+            </div>
+            <button class="border border-white/20 px-4 py-2 rounded-md text-xs hover:bg-white hover:text-black transition uppercase font-bold">
+                Download CV
+            </button>
         </div>
     </nav>
 
-    <main class="main-content">
-        <!-- Section 1: Hero -->
-        <section id="hero" class="hero-banner">
-            <div class="hero-container-xl">
-                <div class="profile-mega-frame"></div>
-                <div class="hero-text">
-                    <span class="subtitle">// LEAD SYSTEMS ARCHITECT v3.0</span>
-                    <h1>JAMAL FAHADH MOHAMED</h1>
-                    <p style="font-size: 1.4rem; color: var(--text-mid); max-width: 600px;">
-                        ICT Specialist specializing in high-integrity data management and resilient network infrastructure for remote field operations.
-                    </p>
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden gradient-bg pt-12 pb-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3 z-10">
+                <h1 class="text-5xl md:text-7xl font-extrabold uppercase leading-tight mb-4">
+                    Jamal Fahadh <span class="accent-yellow italic block md:inline">Mohamed</span>[cite: 1]
+                </h1>
+                <div class="bg-accent-yellow text-black font-bold px-4 py-1 inline-block uppercase text-sm mb-6">
+                    ICT Infrastructure & Information Management Specialist[cite: 1]
+                </div>
+                <p class="text-gray-300 text-lg md:text-xl max-w-2xl mb-8">
+                    To leverage a Bachelor of Business Information Technology to build resilient, secure, and data-driven infrastructures for humanitarian and development organizations[cite: 1].
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="bg-accent-yellow text-black font-bold px-8 py-3 rounded uppercase text-sm hover:scale-105 transition">View Portfolio</a>
+                    <a href="mailto:teacherfahadh@gmail.com" class="border border-white/20 px-8 py-3 rounded uppercase text-sm hover:bg-white/10 transition">Contact Me</a>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 border-t border-white/10 pt-8">
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Based In</p>
+                        <p class="font-bold text-sm">Hargeisa & Lodwar[cite: 1]</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Education</p>
+                        <p class="font-bold text-sm">BIT (Hons) JKUAT[cite: 1]</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Field Exposure</p>
+                        <p class="font-bold text-sm">7+ Years Malware Free[cite: 1]</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Specialization</p>
+                        <p class="font-bold text-sm">Resilient ICT Systems[cite: 1]</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Section 2: Summary -->
-        <section id="summary" class="dossier-section">
-            <span class="page-num">P.02</span>
-            <h2 class="section-title">Executive Summary & <br>Strategic Vision</h2>
-            <p style="font-size: 1.3rem; max-width: 1000px;">
-                With over 7 years of deep technical immersion, I have pioneered digital transformation in environments where reliability is a mechanical necessity. My objective is to bridge the gap between corporate-level IT standards and field-level operational realities. By integrating advanced **Systems Analysis** with **Field Engineering**, I ensure 100% mission-critical hardware uptime and secure, ethical data flows.
-            </p>
-        </section>
-
-        <!-- Section 3: Technical Specs -->
-        <section id="infrastructure" class="dossier-section" style="background: var(--bg-surface);">
-            <span class="page-num">P.05</span>
-            <h2 class="section-title">Technical Infrastructure <br>Specifications</h2>
             
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <h4>Network Mesh & Segmenting</h4>
-                    <p>Advanced VLAN configuration and subnet mask management to ensure bandwidth optimization across 500+ device clusters.</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Security Perimeter</h4>
-                    <p>7-year flawless record in malware mitigation through hardware-level firewalls and strict endpoint security protocols.</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Infrastructure Uptime</h4>
-                    <p>100% reliability maintained through a regime of predictive maintenance and localized hardware hardening.</p>
+            <div class="md:w-1/3 mt-12 md:mt-0 relative flex justify-center">
+                <!-- Replace with actual user image -->
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-700 rounded-full border-4 border-accent-yellow overflow-hidden shadow-2xl">
+                    <div class="w-full h-full flex items-center justify-center text-gray-500 italic">Portrait Placeholder</div>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <br><br>
-            <h3>Systems Flow Diagram</h3>
-            <div class="arch-diagram">
-                <div class="node"><i class="fas fa-tower-broadcast"></i><strong>Field Nodes</strong></div>
-                <div class="connector"></div>
-                <div class="node"><i class="fas fa-server"></i><strong>Core Gateway</strong></div>
-                <div class="connector"></div>
-                <div class="node"><i class="fas fa-cloud"></i><strong>M365 Admin</strong></div>
+    <main class="max-w-7xl mx-auto px-4 py-16 space-y-24">
+        
+        <!-- Stats Row -->
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center p-6 bg-dark-card rounded-xl border border-gray-800">
+                <p class="text-4xl font-extrabold accent-yellow mb-2">7+</p>
+                <p class="text-xs uppercase tracking-widest font-semibold">Years Experience[cite: 1]</p>
             </div>
-        </section>
-
-        <!-- Section 4: Projects (High Detail) -->
-        <section id="history" class="dossier-section">
-            <span class="page-num">P.12</span>
-            <h2 class="section-title">Professional Chronicle: <br>Project Log Books</h2>
-
-            <div class="log-entry">
-                <div class="log-header">
-                    <span class="log-title">The Library Automation & IMS Project</span>
-                    <span class="log-date">2021-2023</span>
-                </div>
-                <p>Objective: Eradicate manual tracking errors and achieve high-fidelity inventory management.</p>
-                <ul class="data-list">
-                    <li><strong>Architecture:</strong> Designed a relational SQL database for cross-referencing institutional assets.</li>
-                    <li><strong>Adoption:</strong> Achieved an 89% staff adoption rate through customized UX training.</li>
-                    <li><strong>Impact:</strong> Reduced administrative overhead by 70% and asset loss to negligible levels.</li>
-                </ul>
+            <div class="text-center p-6 bg-dark-card rounded-xl border border-gray-800">
+                <p class="text-4xl font-extrabold accent-yellow mb-2">100%</p>
+                <p class="text-xs uppercase tracking-widest font-semibold">Hardware Uptime[cite: 1]</p>
             </div>
-
-            <div class="log-entry">
-                <div class="log-header">
-                    <span class="log-title">Elm High School ICT Operations</span>
-                    <span class="log-date">2018-2025</span>
-                </div>
-                <p>Role: Senior Technical Lead & Infrastructure Strategist.</p>
-                <ul class="data-list">
-                    <li><strong>Fleet Management:</strong> Managing 100+ hardware nodes in high-density user environments.</li>
-                    <li><strong>Security:</strong> Implementing tenant-level M365 security policies for faculty and students.</li>
-                    <li><strong>Sustainability:</strong> Developed an in-house repair protocol that extended hardware lifespan by 40%.</li>
-                </ul>
+            <div class="text-center p-6 bg-dark-card rounded-xl border border-gray-800">
+                <p class="text-4xl font-extrabold accent-yellow mb-2">89%</p>
+                <p class="text-xs uppercase tracking-widest font-semibold">IMS Success Rate[cite: 1]</p>
+            </div>
+            <div class="text-center p-6 bg-dark-card rounded-xl border border-gray-800">
+                <p class="text-4xl font-extrabold accent-yellow mb-2">2</p>
+                <p class="text-xs uppercase tracking-widest font-semibold">Field Locations[cite: 1]</p>
             </div>
         </section>
 
-        <!-- Section 5: Field Resilience -->
-        <section id="field-resilience" class="dossier-section" style="background: var(--bg-surface);">
-            <span class="page-num">P.22</span>
-            <h2 class="section-title">Field Operations: <br>The Turkana Deployment</h2>
-            <p>During regional operations in Kenya-Turkana (2017), I specialized in deploying technical stability in low-resource environments.</p>
-            <div class="tech-grid" style="margin-top: 40px;">
-                <div class="tech-item">
-                    <h4>Satellite Routing</h4>
-                    <p>Configuration of high-latency satellite links to provide stable WAN connectivity for field offices.</p>
+        <!-- Experience & Skills -->
+        <section id="experience" class="grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-3xl font-bold uppercase mb-8 border-l-4 border-accent-yellow pl-4">Experience[cite: 1]</h2>
+                <div class="space-y-12">
+                    <div class="relative pl-8 border-l border-gray-700">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-accent-yellow shadow-[0_0_10px_#facc15]"></div>
+                        <p class="text-xs accent-yellow font-bold mb-1">2018 - 2025[cite: 1]</p>
+                        <h3 class="text-xl font-bold">ICT Teacher & Technical Lead[cite: 1]</h3>
+                        <p class="text-sm text-gray-400 mb-4 uppercase">Elm High School, Hargeisa[cite: 1]</p>
+                        <ul class="text-sm text-gray-300 space-y-2">
+                            <li>• Managed robust ICT Lab Infrastructure for hundreds of users[cite: 1].</li>
+                            <li>• Delivered Pearson Edexcel curriculum (IGCSE and A Level)[cite: 1].</li>
+                            <li>• Successfully migrated workflows to Microsoft 365[cite: 1].</li>
+                        </ul>
+                    </div>
+                    <div class="relative pl-8 border-l border-gray-700">
+                        <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-gray-500"></div>
+                        <p class="text-xs accent-yellow font-bold mb-1">2021 - 2023[cite: 1]</p>
+                        <h3 class="text-xl font-bold">Library Resource Supporter[cite: 1]</h3>
+                        <p class="text-sm text-gray-400 mb-4 uppercase">Elm High School, Hargeisa[cite: 1]</p>
+                        <p class="text-sm text-gray-300 italic">Achieved 89% implementation of automated Library Management System[cite: 1].</p>
+                    </div>
                 </div>
-                <div class="tech-item">
-                    <h4>Extreme Environment Hardening</h4>
-                    <p>Maintaining hardware integrity against high ambient temperatures and silica-dust ingress.</p>
-                </div>
-                <div class="tech-item">
-                    <h4>Remote Troubleshooting</h4>
-                    <p>Providing 24/7 technical helpdesk support via limited bandwidth communication channels.</p>
+            </div>
+
+            <div id="skills">
+                <h2 class="text-3xl font-bold uppercase mb-8 border-l-4 border-accent-yellow pl-4">Technical Stack[cite: 1]</h2>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase mb-2">
+                            <span>Infrastructure & Networking[cite: 1]</span>
+                            <span class="accent-yellow">95%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-accent-yellow h-full w-[95%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase mb-2">
+                            <span>System Admin (M365/Entra)[cite: 1]</span>
+                            <span class="accent-yellow">90%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-accent-yellow h-full w-[90%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold uppercase mb-2">
+                            <span>Data & Databases (SQL/Excel)[cite: 1]</span>
+                            <span class="accent-yellow">85%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div class="bg-accent-yellow h-full w-[85%]"></div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-8 pt-4 border-t border-white/5">
+                        <div class="text-sm text-gray-400"><i class="fa-solid fa-check accent-yellow mr-2"></i>Web Dev (HTML/CSS)[cite: 1]</div>
+                        <div class="text-sm text-gray-400"><i class="fa-solid fa-check accent-yellow mr-2"></i>Adobe Creative Suite[cite: 1]</div>
+                        <div class="text-sm text-gray-400"><i class="fa-solid fa-check accent-yellow mr-2"></i>Video Editing[cite: 1]</div>
+                        <div class="text-sm text-gray-400"><i class="fa-solid fa-check accent-yellow mr-2"></i>Technical Training[cite: 1]</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 6: Governance -->
-        <section id="ethics" class="dossier-section">
-            <span class="page-num">P.28</span>
-            <h2 class="section-title">Data Governance & <br>Professional Ethics</h2>
-            <div style="background: var(--bg-card); padding: 50px; border-radius: 20px;">
-                <p style="font-style: italic; color: var(--primary); margin-bottom: 20px;">"Technology is only as effective as the ethics behind the data it processes."</p>
-                <p>I adhere to the highest standards of **Information Privacy** and **Ethical Asset Management**. My methodologies prioritize transparency, ensuring that digital systems serve the community and the organization with complete integrity.</p>
+        <!-- Projects Grid -->
+        <section id="projects">
+            <h2 class="text-3xl font-bold uppercase mb-12 text-center">Signature Projects[cite: 1]</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-dark-card p-8 rounded-xl border border-gray-800 hover:border-accent-yellow group transition">
+                    <div class="bg-accent-yellow/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent-yellow group-hover:text-black transition">
+                        <i class="fa-solid fa-server text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Institutional Transformation[cite: 1]</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                        Achieved 7 years of malware-free operations for hundreds of users while maintaining 100% hardware uptime[cite: 1].
+                    </p>
+                    <a href="#" class="text-xs font-bold accent-yellow uppercase flex items-center hover:underline">
+                        Details <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-dark-card p-8 rounded-xl border border-gray-800 hover:border-accent-yellow group transition">
+                    <div class="bg-accent-yellow/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent-yellow group-hover:text-black transition">
+                        <i class="fa-solid fa-database text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">IMS Deployment[cite: 1]</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                        Automated physical resource centers with an 89% implementation success rate, significantly reducing asset loss[cite: 1].
+                    </p>
+                    <a href="#" class="text-xs font-bold accent-yellow uppercase flex items-center hover:underline">
+                        Details <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-dark-card p-8 rounded-xl border border-gray-800 hover:border-accent-yellow group transition">
+                    <div class="bg-accent-yellow/10 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent-yellow group-hover:text-black transition">
+                        <i class="fa-solid fa-globe text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Remote Operations[cite: 1]</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                        Established stable ICT infrastructure and web presence in the remote Turkana region of Kenya[cite: 1].
+                    </p>
+                    <a href="#" class="text-xs font-bold accent-yellow uppercase flex items-center hover:underline">
+                        Details <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <footer>
-            <h2>JAMAL FAHADH MOHAMED</h2>
-            <p>BBIT (HONS) JKUAT | SENIOR ICT SPECIALIST</p>
-            <div style="margin-top: 30px; opacity: 0.5; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace;">
-                DOCUMENT REF: JF-DOSS-2026-X | END OF FILE
+        <!-- Quote -->
+        <section class="max-w-4xl mx-auto py-12 px-8 border-y border-white/10 text-center">
+            <i class="fa-solid fa-quote-left accent-yellow text-4xl mb-6 opacity-50"></i>
+            <h2 class="text-2xl italic font-light leading-relaxed">
+                "Technology is most powerful when it solves real problems and improves lives."[cite: 1]
+            </h2>
+            <p class="mt-4 font-bold uppercase text-sm tracking-widest">— Jamal Fahadh Mohamed[cite: 1]</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+                <h2 class="text-3xl font-bold uppercase mb-8 border-l-4 border-accent-yellow pl-4">Contact Me[cite: 1]</h2>
+                <p class="text-gray-400 mb-12">I am available for infrastructure consultations, ICT management roles, and humanitarian project support[cite: 1].</p>
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-6">
+                        <div class="text-accent-yellow text-2xl w-8"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-tighter">Email</p>
+                            <p class="font-bold">teacherfahadh@gmail.com[cite: 1]</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <div class="text-accent-yellow text-2xl w-8"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-tighter">Phone</p>
+                            <p class="font-bold">+252 636710907[cite: 1]</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <div class="text-accent-yellow text-2xl w-8"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-tighter">Location</p>
+                            <p class="font-bold">Hargeisa, Somaliland[cite: 1]</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
+            
+            <form class="bg-dark-card p-8 rounded-xl border border-gray-800 space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="text" placeholder="Name" class="w-full bg-[#0b1120] border border-gray-700 p-3 rounded text-sm focus:border-accent-yellow outline-none">
+                    <input type="email" placeholder="Email" class="w-full bg-[#0b1120] border border-gray-700 p-3 rounded text-sm focus:border-accent-yellow outline-none">
+                </div>
+                <input type="text" placeholder="Subject" class="w-full bg-[#0b1120] border border-gray-700 p-3 rounded text-sm focus:border-accent-yellow outline-none">
+                <textarea rows="4" placeholder="Message" class="w-full bg-[#0b1120] border border-gray-700 p-3 rounded text-sm focus:border-accent-yellow outline-none"></textarea>
+                <button type="submit" class="w-full bg-accent-yellow text-black font-extrabold p-3 rounded uppercase text-sm hover:scale-[1.02] transition">Send Message</button>
+            </form>
+        </section>
     </main>
-</div>
+
+    <footer class="bg-black py-12 text-center border-t border-white/5">
+        <p class="text-xs text-gray-500 uppercase tracking-widest">&copy; 2026 Jamal Fahadh Mohamed. All Rights Reserved.[cite: 1]</p>
+    </footer>
 
 </body>
 </html>
