@@ -3,273 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamal Fahadh Mohamed | Senior Systems Engineer & ICT Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Jamal Fahadh Mohamed | Senior ICT Systems Architect & Field Strategist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- GLOBAL DESIGN SYSTEM --- */
         :root {
             --primary: #ffc400;
-            --secondary: #0062ff;
-            --dark-core: #0a0f1d;
-            --dark-surface: #161c2d;
-            --text-primary: #ffffff;
-            --text-secondary: #a0aec0;
-            --accent-green: #00f2fe;
-            --border: rgba(255, 255, 255, 0.1);
+            --secondary: #00e5ff;
+            --bg-deep: #05080f;
+            --bg-surface: #0d121f;
+            --bg-card: #161c2d;
+            --text-high: #ffffff;
+            --text-mid: #a0aec0;
+            --border: rgba(255, 255, 255, 0.08);
+            --sidebar-width: 320px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-core); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-deep); color: var(--text-high); line-height: 1.8; overflow-x: hidden; }
 
-        /* --- MASSIVE HERO & PROFILE SECTION --- */
-        .mega-hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 5%;
-            background: radial-gradient(circle at 50% 50%, #1a233a 0%, var(--dark-core) 100%);
-            position: relative;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        /* Enormous Profile Picture */
-        .profile-stage {
-            position: relative;
-            z-index: 2;
-        }
-
-        .profile-img-large {
-            width: 500px; /* Enormous Scale */
-            height: 600px;
-            border-radius: 30px;
-            background: url('profile.jpg') center/cover no-repeat;
-            border: 10px solid var(--primary);
-            box-shadow: 30px 30px 0px rgba(255, 196, 0, 0.1);
-            transition: 0.5s ease-in-out;
-        }
-
-        .profile-img-large:hover {
-            transform: scale(1.02);
-            box-shadow: 40px 40px 0px rgba(255, 196, 0, 0.15);
-        }
-
-        .hero-badge {
-            background: var(--primary);
-            color: black;
-            padding: 8px 20px;
-            font-weight: 900;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            line-height: 0.9;
-            font-weight: 900;
-            margin-bottom: 25px;
-        }
-
-        /* --- DATA GRID: SIMULATING "PAGE VOLUME" --- */
-        .section-wrapper { padding: 100px 10%; border-top: 1px solid var(--border); }
-        .section-header { margin-bottom: 60px; }
-        .section-header h2 { font-size: 3rem; font-weight: 900; color: var(--primary); }
-        .section-header p { color: var(--text-secondary); max-width: 800px; }
-
-        .data-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .data-card {
-            background: var(--dark-surface);
+        /* --- NAVIGATION SIDEBAR (The "Index" feel) --- */
+        .master-grid { display: flex; min-height: 100vh; }
+        
+        .sidebar-index { 
+            width: var(--sidebar-width); 
+            background: var(--bg-surface); 
+            border-right: 1px solid var(--border);
             padding: 40px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-index h3 { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--primary); letter-spacing: 2px; margin-bottom: 30px; }
+        .index-link { display: block; text-decoration: none; color: var(--text-mid); font-size: 0.9rem; margin-bottom: 18px; transition: 0.3s; border-left: 2px solid transparent; padding-left: 15px; }
+        .index-link:hover { color: var(--primary); border-left: 2px solid var(--primary); }
+
+        /* --- MAIN CONTENT AREA --- */
+        .main-content { margin-left: var(--sidebar-width); flex: 1; padding: 0; }
+
+        /* --- MASSIVE PROFILE HEADER --- */
+        .hero-banner { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0 10%; 
+            background: radial-gradient(circle at 10% 10%, rgba(255, 196, 0, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-container-xl { display: grid; grid-template-columns: 550px 1fr; gap: 80px; align-items: center; width: 100%; max-width: 1600px; }
+        
+        .profile-mega-frame {
+            width: 550px; /* ENLARGED: 30-page impact size */
+            height: 700px;
+            background: url('profile.jpg') center/cover no-repeat;
+            border-radius: 4px;
+            border: 2px solid var(--primary);
+            position: relative;
+            box-shadow: 40px 40px 0px -10px var(--bg-card), 40px 40px 0px 0px var(--primary);
+        }
+
+        .hero-text h1 { font-size: 5rem; font-weight: 900; line-height: 1; margin-bottom: 20px; }
+        .hero-text .subtitle { font-family: 'JetBrains Mono', monospace; color: var(--primary); font-size: 1.2rem; display: block; margin-bottom: 40px; }
+
+        /* --- DETAILED TECHNICAL SECTIONS (PAGE-BY-PAGE FEEL) --- */
+        .dossier-section { padding: 120px 10%; border-bottom: 1px solid var(--border); }
+        .page-num { font-family: 'JetBrains Mono', monospace; color: var(--text-mid); opacity: 0.3; font-size: 3rem; font-weight: 900; }
+        .section-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 50px; line-height: 1.1; }
+
+        .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .tech-item { background: var(--bg-card); padding: 40px; border-radius: 12px; border-bottom: 4px solid transparent; transition: 0.3s; }
+        .tech-item:hover { transform: translateY(-10px); border-bottom: 4px solid var(--primary); }
+        .tech-item h4 { font-size: 1.3rem; margin-bottom: 20px; color: var(--primary); }
+
+        /* --- SIMULATED INFOGRAPHIC: SYSTEM ARCHITECTURE --- */
+        .arch-diagram {
+            border: 2px solid var(--border);
+            padding: 60px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
             border-radius: 20px;
-            border: 1px solid var(--border);
-            transition: 0.3s;
+            background: rgba(255,255,255,0.02);
         }
+        .node { width: 150px; }
+        .node i { font-size: 3rem; color: var(--secondary); margin-bottom: 15px; display: block; }
+        .connector { height: 2px; background: var(--border); flex: 1; margin-top: 40px; position: relative; }
+        .connector::after { content: '➔'; color: var(--primary); position: absolute; right: -5px; top: -11px; }
 
-        .data-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .data-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-        .data-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .data-card ul { list-style: none; color: var(--text-secondary); font-size: 0.95rem; }
-        .data-card li { margin-bottom: 12px; padding-left: 20px; position: relative; }
-        .data-card li::before { content: '◈'; position: absolute; left: 0; color: var(--primary); }
+        /* --- EXTENDED PROJECT LOGS --- */
+        .log-entry { margin-bottom: 100px; }
+        .log-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--primary); padding-bottom: 15px; margin-bottom: 30px; }
+        .log-title { font-size: 2rem; font-weight: 800; }
+        .log-date { font-family: 'JetBrains Mono', monospace; color: var(--text-mid); }
 
-        /* --- THE TECHNICAL CHRONICLE (DETAILED EXPERIENCE) --- */
-        .chronicle { border-left: 4px solid var(--primary); padding-left: 40px; margin-left: 20px; }
-        .chronicle-item { margin-bottom: 80px; position: relative; }
-        .chronicle-item::before { 
-            content: ''; width: 20px; height: 20px; background: var(--primary); 
-            position: absolute; left: -52px; top: 10px; border-radius: 50%;
-        }
+        .data-list { list-style: none; margin-top: 25px; }
+        .data-list li { margin-bottom: 15px; padding-left: 30px; position: relative; }
+        .data-list li::before { content: '0x0'; position: absolute; left: 0; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: bold; }
 
-        .chronicle-meta { font-family: 'JetBrains Mono', monospace; color: var(--primary); font-weight: bold; }
-        .chronicle-body { background: var(--dark-surface); padding: 40px; margin-top: 20px; border-radius: 0 20px 20px 20px; }
+        footer { padding: 100px 10%; background: #000; text-align: center; }
 
-        /* --- FOOTER --- */
-        footer { padding: 100px 10%; background: #050811; text-align: center; }
-        .contact-btn {
-            background: var(--primary);
-            color: black;
-            padding: 20px 50px;
-            font-size: 1.2rem;
-            font-weight: 900;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 30px;
-            border-radius: 50px;
-        }
-
-        @media (max-width: 1024px) {
-            .hero-container { grid-template-columns: 1fr; }
-            .profile-img-large { width: 100%; height: 400px; }
+        @media (max-width: 1200px) {
+            .sidebar-index { display: none; }
+            .main-content { margin-left: 0; }
+            .hero-container-xl { grid-template-columns: 1fr; }
+            .profile-mega-frame { width: 100%; height: 500px; }
+            .tech-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<section class="mega-hero">
-    <div class="hero-container">
-        <div class="profile-stage">
-            <div class="profile-img-large"></div>
-        </div>
-        <div class="hero-content">
-            <span class="hero-badge">Verified ICT Authority</span>
-            <h1>JAMAL FAHADH MOHAMED</h1>
-            <p style="font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 40px;">
-                ICT Specialist | BBIT (Hons) JKUAT | Systems Modernization Architect
-            </p>
-            <div class="stats-ribbon" style="display: flex; gap: 40px;">
-                <div><h2 style="color: var(--primary);">7+</h2><p>Years Field Exp.</p></div>
-                <div><h2 style="color: var(--primary);">100%</h2><p>Uptime Record</p></div>
-                <div><h2 style="color: var(--primary);">0</h2><p>Security Breaches</p></div>
-            </div>
-            <a href="mailto:teacherfahadh@gmail.com" class="contact-btn">INITIATE DEPLOYMENT</a>
-        </div>
-    </div>
-</section>
-
-<!-- Section: The Technical Dossier -->
-<section class="section-wrapper">
-    <div class="section-header">
-        <h2>Technical Documentation</h2>
-        <p>A comprehensive breakdown of technical domains, spanning network architecture, information management, and field-resilient systems deployment.</p>
-    </div>
-
-    <div class="data-grid">
-        <!-- Grid Item 1: Infrastructure -->
-        <div class="data-card">
-            <i class="fas fa-network-wired"></i>
-            <h3>Infrastructure & Networking</h3>
-            <ul>
-                <li><strong>LAN/WAN/VLAN:</strong> Expert configuration of multi-segmented networks for high-security campus environments.</li>
-                <li><strong>Hardware Lifecycle:</strong> End-to-end management of 100+ units, from procurement to preventative maintenance.</li>
-                <li><strong>Field Mesh:</strong> Deployment of wireless mesh networks in low-resource regional settings.</li>
-            </ul>
-        </div>
-
-        <!-- Grid Item 2: Information Systems -->
-        <div class="data-card">
-            <i class="fas fa-database"></i>
-            <h3>Information Management</h3>
-            <ul>
-                <li><strong>SQL Architecting:</strong> Designing relational databases to replace manual paper-based workflows.</li>
-                <li><strong>M365 Administration:</strong> High-tier management of tenant security, user permissions, and cloud storage.</li>
-                <li><strong>Data Integrity:</strong> Implementing strict validation protocols to ensure 100% data accuracy.</li>
-            </ul>
-        </div>
-
-        <!-- Grid Item 3: Operational Projects -->
-        <div class="data-card">
-            <i class="fas fa-microchip"></i>
-            <h3>Resilience Engineering</h3>
-            <ul>
-                <li><strong>Environmental Hardening:</strong> Maintaining server uptime in high-dust/high-heat environments.</li>
-                <li><strong>Zero-Malware Record:</strong> Sustained a virus-free environment across 7 years of high-density usage.</li>
-                <li><strong>Technical Training:</strong> Conducted 100+ hours of staff digital literacy and security workshops.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Section: Detailed Professional Chronicle -->
-<section class="section-wrapper" style="background: #0d1221;">
-    <div class="section-header">
-        <h2>Professional Chronicle</h2>
-        <p>A deep-dive into the technical milestones and leadership roles held over the last 7 years.</p>
-    </div>
-
-    <div class="chronicle">
-        <div class="chronicle-item">
-            <span class="chronicle-meta">2018 — 2025 | SENIOR ICT LEAD</span>
-            <div class="chronicle-body">
-                <h3>Elm High School Modernization</h3>
-                <p>Spearheaded the complete digital overhaul of the institution's operational backbone.</p>
-                <br>
-                <p><strong>Key Achievements:</strong></p>
-                <ul>
-                    <li>Migrated legacy library systems to an automated IMS, reducing asset loss by 90% and achieving 89% adoption.</li>
-                    <li>Designed the high-availability campus network supporting hundreds of concurrent educational sessions.</li>
-                    <li>Acted as the primary Technical Consultant for senior management on hardware scalability.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="chronicle-item">
-            <span class="chronicle-meta">2017 — 2018 | REGIONAL SYSTEMS SUPPORT</span>
-            <div class="chronicle-body">
-                <h3>Kenya-Turkana Field Operations</h3>
-                <p>Managed technical logistics and network configurations in a high-demand, low-resource regional setting.</p>
-                <br>
-                <p><strong>Key Achievements:</strong></p>
-                <ul>
-                    <li>Configured remote satellite-link routers and secured local gateways for field staff.</li>
-                    <li>Performed emergency hardware repairs using localized toolkits when supply lines were limited.</li>
-                    <li>Trained local personnel on basic network maintenance to ensure sustainability after departure.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Section: Academic Foundation -->
-<section class="section-wrapper">
-    <div class="section-header">
-        <h2>Academic & Research Foundation</h2>
-    </div>
-    <div class="data-card" style="max-width: 900px;">
-        <h3>Bachelor of Business Information Technology (BBIT)</h3>
-        <p><strong>Jomo Kenyatta University of Agriculture and Technology (JKUAT)</strong> | <em>Upper Division Honors</em></p>
+<div class="master-grid">
+    <!-- Sidebar Index -->
+    <nav class="sidebar-index">
+        <h3>SYSTEM INDEX</h3>
+        <a href="#hero" class="index-link">01. COMMAND INTERFACE</a>
+        <a href="#summary" class="index-link">02. EXECUTIVE SUMMARY</a>
+        <a href="#infrastructure" class="index-link">03. NETWORK INFRASTRUCTURE</a>
+        <a href="#databases" class="index-link">04. DATABASE ARCHITECTURE</a>
+        <a href="#field-resilience" class="index-link">05. FIELD RESILIENCE DEPLOYMENT</a>
+        <a href="#history" class="index-link">06. PROFESSIONAL CHRONICLE</a>
+        <a href="#education" class="index-link">07. ACADEMIC SPECIFICATIONS</a>
+        <a href="#ethics" class="index-link">08. GOVERNANCE & ETHICS</a>
         <br>
-        <p>My academic background provided the theoretical framework for "Strategic Information Systems." I specialized in the synergy between business process optimization and technical infrastructure, focusing on high-performance database management and systems analysis.</p>
-    </div>
-</section>
+        <h3>CONTACT NODES</h3>
+        <div style="font-size: 0.8rem; color: var(--text-mid);">
+            TEL: +252 636 710907<br>
+            EML: teacherfahadh@gmail.com<br>
+            LOC: Hargeisa, Somaliland
+        </div>
+    </nav>
 
-<footer>
-    <h2>JAMAL FAHADH MOHAMED</h2>
-    <p>Available for International & Regional Deployments</p>
-    <div style="margin-top: 20px;">
-        <span style="padding: 0 15px;">+252 636 710907</span> | 
-        <span style="padding: 0 15px;">teacherfahadh@gmail.com</span>
-    </div>
-    <p style="margin-top: 40px; opacity: 0.3; font-size: 0.8rem;">
-        © 2026 Lead Systems Engineer | Hargeisa | Verified Professional Credentials
-    </p>
-</footer>
+    <main class="main-content">
+        <!-- Section 1: Hero -->
+        <section id="hero" class="hero-banner">
+            <div class="hero-container-xl">
+                <div class="profile-mega-frame"></div>
+                <div class="hero-text">
+                    <span class="subtitle">// LEAD SYSTEMS ARCHITECT v3.0</span>
+                    <h1>JAMAL FAHADH MOHAMED</h1>
+                    <p style="font-size: 1.4rem; color: var(--text-mid); max-width: 600px;">
+                        ICT Specialist specializing in high-integrity data management and resilient network infrastructure for remote field operations.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Summary -->
+        <section id="summary" class="dossier-section">
+            <span class="page-num">P.02</span>
+            <h2 class="section-title">Executive Summary & <br>Strategic Vision</h2>
+            <p style="font-size: 1.3rem; max-width: 1000px;">
+                With over 7 years of deep technical immersion, I have pioneered digital transformation in environments where reliability is a mechanical necessity. My objective is to bridge the gap between corporate-level IT standards and field-level operational realities. By integrating advanced **Systems Analysis** with **Field Engineering**, I ensure 100% mission-critical hardware uptime and secure, ethical data flows.
+            </p>
+        </section>
+
+        <!-- Section 3: Technical Specs -->
+        <section id="infrastructure" class="dossier-section" style="background: var(--bg-surface);">
+            <span class="page-num">P.05</span>
+            <h2 class="section-title">Technical Infrastructure <br>Specifications</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Network Mesh & Segmenting</h4>
+                    <p>Advanced VLAN configuration and subnet mask management to ensure bandwidth optimization across 500+ device clusters.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Security Perimeter</h4>
+                    <p>7-year flawless record in malware mitigation through hardware-level firewalls and strict endpoint security protocols.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Infrastructure Uptime</h4>
+                    <p>100% reliability maintained through a regime of predictive maintenance and localized hardware hardening.</p>
+                </div>
+            </div>
+
+            <br><br>
+            <h3>Systems Flow Diagram</h3>
+            <div class="arch-diagram">
+                <div class="node"><i class="fas fa-tower-broadcast"></i><strong>Field Nodes</strong></div>
+                <div class="connector"></div>
+                <div class="node"><i class="fas fa-server"></i><strong>Core Gateway</strong></div>
+                <div class="connector"></div>
+                <div class="node"><i class="fas fa-cloud"></i><strong>M365 Admin</strong></div>
+            </div>
+        </section>
+
+        <!-- Section 4: Projects (High Detail) -->
+        <section id="history" class="dossier-section">
+            <span class="page-num">P.12</span>
+            <h2 class="section-title">Professional Chronicle: <br>Project Log Books</h2>
+
+            <div class="log-entry">
+                <div class="log-header">
+                    <span class="log-title">The Library Automation & IMS Project</span>
+                    <span class="log-date">2021-2023</span>
+                </div>
+                <p>Objective: Eradicate manual tracking errors and achieve high-fidelity inventory management.</p>
+                <ul class="data-list">
+                    <li><strong>Architecture:</strong> Designed a relational SQL database for cross-referencing institutional assets.</li>
+                    <li><strong>Adoption:</strong> Achieved an 89% staff adoption rate through customized UX training.</li>
+                    <li><strong>Impact:</strong> Reduced administrative overhead by 70% and asset loss to negligible levels.</li>
+                </ul>
+            </div>
+
+            <div class="log-entry">
+                <div class="log-header">
+                    <span class="log-title">Elm High School ICT Operations</span>
+                    <span class="log-date">2018-2025</span>
+                </div>
+                <p>Role: Senior Technical Lead & Infrastructure Strategist.</p>
+                <ul class="data-list">
+                    <li><strong>Fleet Management:</strong> Managing 100+ hardware nodes in high-density user environments.</li>
+                    <li><strong>Security:</strong> Implementing tenant-level M365 security policies for faculty and students.</li>
+                    <li><strong>Sustainability:</strong> Developed an in-house repair protocol that extended hardware lifespan by 40%.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Field Resilience -->
+        <section id="field-resilience" class="dossier-section" style="background: var(--bg-surface);">
+            <span class="page-num">P.22</span>
+            <h2 class="section-title">Field Operations: <br>The Turkana Deployment</h2>
+            <p>During regional operations in Kenya-Turkana (2017), I specialized in deploying technical stability in low-resource environments.</p>
+            <div class="tech-grid" style="margin-top: 40px;">
+                <div class="tech-item">
+                    <h4>Satellite Routing</h4>
+                    <p>Configuration of high-latency satellite links to provide stable WAN connectivity for field offices.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Extreme Environment Hardening</h4>
+                    <p>Maintaining hardware integrity against high ambient temperatures and silica-dust ingress.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Remote Troubleshooting</h4>
+                    <p>Providing 24/7 technical helpdesk support via limited bandwidth communication channels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Governance -->
+        <section id="ethics" class="dossier-section">
+            <span class="page-num">P.28</span>
+            <h2 class="section-title">Data Governance & <br>Professional Ethics</h2>
+            <div style="background: var(--bg-card); padding: 50px; border-radius: 20px;">
+                <p style="font-style: italic; color: var(--primary); margin-bottom: 20px;">"Technology is only as effective as the ethics behind the data it processes."</p>
+                <p>I adhere to the highest standards of **Information Privacy** and **Ethical Asset Management**. My methodologies prioritize transparency, ensuring that digital systems serve the community and the organization with complete integrity.</p>
+            </div>
+        </section>
+
+        <footer>
+            <h2>JAMAL FAHADH MOHAMED</h2>
+            <p>BBIT (HONS) JKUAT | SENIOR ICT SPECIALIST</p>
+            <div style="margin-top: 30px; opacity: 0.5; font-size: 0.7rem; font-family: 'JetBrains Mono', monospace;">
+                DOCUMENT REF: JF-DOSS-2026-X | END OF FILE
+            </div>
+        </footer>
+    </main>
+</div>
 
 </body>
 </html>
