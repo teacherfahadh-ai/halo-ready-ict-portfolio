@@ -3,165 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jamal F. Mohamed | ICT Systems Specialist | Field Operations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <title>Jamal Fahadh Mohamed | ICT & Information Management Specialist</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --tactical-black: #050505;
-            --tactical-grey: #121212;
-            --halo-orange: #E56A16; /* Tactical Accent */
-            --field-green: #2D3A2D;
-            --text-pure: #FFFFFF;
-            --text-muted: #A0A0A0;
-            --success-glow: #00FF41;
+            --halo-navy: #002D72;
+            --field-orange: #E56A16;
+            --tactical-bg: #0A0C12;
+            --card-surface: #161B22;
+            --text-main: #FFFFFF;
+            --text-dim: #8B949E;
+            --success: #238636;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background: var(--tactical-black); color: var(--text-pure); margin: 0; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background: var(--tactical-bg); color: var(--text-main); margin: 0; line-height: 1.6; }
 
-        /* HUD Header */
-        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--tactical-black)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070'); background-size: cover; background-position: center; border-bottom: 2px solid var(--halo-orange); }
-        .status-tag { font-family: 'JetBrains Mono', monospace; color: var(--success-glow); font-size: 0.8rem; margin-bottom: 10px; letter-spacing: 2px; }
-        h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin: 0; font-weight: 800; letter-spacing: -3px; line-height: 0.9; }
-        .hero-sub { font-size: 1.5rem; color: var(--halo-orange); font-weight: 600; margin-top: 10px; text-transform: uppercase; }
-        .location-bar { margin-top: 30px; display: flex; gap: 20px; color: var(--text-muted); font-size: 0.9rem; font-family: 'JetBrains Mono'; }
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(10, 12, 18, 0.95); border-bottom: 1px solid #30363d; z-index: 1000; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-weight: 800; font-size: 1.2rem; color: var(--field-orange); letter-spacing: -1px; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; margin-left: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--field-orange); }
 
-        /* Layout */
-        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
-        .section-title { font-size: 2.5rem; border-left: 5px solid var(--halo-orange); padding-left: 20px; margin-bottom: 50px; text-transform: uppercase; }
+        /* Hero Section */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%; background: radial-gradient(circle at center, #1C2128 0%, #0A0C12 100%); border-bottom: 4px solid var(--field-orange); }
+        .profile-img-wrap { position: relative; margin-bottom: 2rem; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid var(--field-orange); object-fit: cover; box-shadow: 0 0 30px rgba(229, 106, 22, 0.2); }
+        
+        .hero h1 { font-size: clamp(2rem, 6vw, 4rem); margin: 0; line-height: 1; font-weight: 800; }
+        .hero h2 { font-size: 1.5rem; color: var(--field-orange); margin: 10px 0; text-transform: uppercase; letter-spacing: 2px; }
+        .hero p { max-width: 800px; color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem; }
 
-        /* Tactical Cards */
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .tactical-card { background: var(--tactical-grey); border: 1px solid #333; padding: 40px; border-radius: 4px; transition: 0.3s; position: relative; overflow: hidden; }
-        .tactical-card:hover { border-color: var(--halo-orange); box-shadow: 0 10px 30px rgba(229, 106, 22, 0.1); }
-        .tactical-card i { color: var(--halo-orange); margin-bottom: 20px; }
+        /* Quick Profile Panel */
+        .quick-panel { background: var(--card-surface); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 2rem; border-radius: 8px; border: 1px solid #30363d; margin-top: -50px; position: relative; z-index: 10; max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .panel-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-dim); }
+        .panel-item i { color: var(--field-orange); width: 20px; }
 
-        /* Core Metrics (Resilience) */
-        .resilience-box { background: #1a1a1a; padding: 40px; border-radius: 8px; border-left: 4px solid var(--success-glow); }
-        .metric-item { margin-bottom: 25px; }
-        .metric-label { display: flex; justify-content: space-between; font-family: 'JetBrains Mono'; font-size: 0.8rem; margin-bottom: 8px; }
-        .progress-track { height: 4px; background: #333; border-radius: 2px; }
-        .progress-bar { height: 100%; background: var(--success-glow); border-radius: 2px; box-shadow: 0 0 10px var(--success-glow); }
+        /* Sections */
+        .container { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
+        .section-title { font-size: 2.2rem; margin-bottom: 3rem; text-transform: uppercase; border-left: 5px solid var(--field-orange); padding-left: 20px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .card { background: var(--card-surface); padding: 2.5rem; border-radius: 6px; border: 1px solid #30363d; transition: 0.3s; }
+        .card:hover { border-color: var(--field-orange); transform: translateY(-5px); }
+        .card i { font-size: 2rem; color: var(--field-orange); margin-bottom: 1.5rem; }
+        .card h3 { margin-top: 0; font-size: 1.3rem; }
+        .card ul { padding-left: 1.2rem; color: var(--text-dim); font-size: 0.9rem; }
+        .card ul li { margin-bottom: 8px; }
 
-        /* Timeline */
-        .timeline-item { padding: 30px; border-left: 1px solid #333; margin-left: 20px; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 35px; width: 10px; height: 10px; background: var(--halo-orange); border-radius: 50%; }
-        .date { font-family: 'JetBrains Mono'; color: var(--halo-orange); font-size: 0.9rem; }
+        /* Deployment Highlight */
+        .deployment-box { background: #0D1117; padding: 40px; border-radius: 8px; border-left: 4px solid var(--field-orange); margin-bottom: 30px; }
+        .tag { background: rgba(229, 106, 22, 0.1); color: var(--field-orange); padding: 4px 12px; border-radius: 4px; font-family: 'JetBrains Mono'; font-size: 0.75rem; text-transform: uppercase; font-weight: bold; }
 
-        .cta-btn { display: inline-block; background: var(--halo-orange); color: white; padding: 18px 40px; text-decoration: none; font-weight: 800; border-radius: 4px; transition: 0.3s; margin-top: 40px; }
-        .cta-btn:hover { background: #ff7b1f; transform: translateY(-3px); }
+        /* Metrics */
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 40px; }
+        .metric-card { text-align: center; background: #161B22; padding: 20px; border-radius: 8px; border-bottom: 3px solid var(--success); }
+        .metric-value { display: block; font-size: 2rem; font-weight: 800; color: var(--text-main); }
+        .metric-label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; }
 
-        @media (max-width: 768px) { h1 { font-size: 3rem; } .container { padding: 60px 20px; } }
+        .btn { background: var(--field-orange); color: white; padding: 14px 30px; border: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: 0.3s; display: inline-block; }
+        .btn:hover { background: #ff7b1f; box-shadow: 0 0 20px rgba(229, 106, 22, 0.4); }
+
+        footer { text-align: center; padding: 4rem; border-top: 1px solid #30363d; color: var(--text-dim); font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="status-tag">● SYSTEM STATUS: FIELD-READY</div>
-        <h1>JAMAL FAHADH<br>MOHAMED</h1>
-        <div class="hero-sub">ICT Systems Specialist | Field Operations</div>
-        <div class="location-bar">
-            <span><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</span>
-            <span><i class="fas fa-globe"></i> Kenyan/Somaliland Citizen</span>
+    <nav>
+        <div class="nav-brand">JAMAL F. MOHAMED // ICT</div>
+        <div class="nav-links">
+            <a href="#profile">Profile</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#experience">Field Experience</a>
+            <a href="#readiness">Readiness</a>
         </div>
-        <div>
-            <a href="#portfolio" class="cta-btn">DEPLOY PORTFOLIO</a>
-            <a href="cv_2.pdf" class="cta-btn" style="background: transparent; border: 1px solid white; margin-left: 15px;">DOWNLOAD CV.PDF</a>
+    </nav>
+
+    <!-- 🧭 HERO SECTION -->
+    <header class="hero">
+        <div class="profile-img-wrap">
+            <img src="profile.jpg" alt="Jamal Fahadh Mohamed" class="profile-img">
+        </div>
+        <div class="status-tag" style="font-family: 'JetBrains Mono'; color: var(--success); margin-bottom: 1rem;">● SYSTEM STATUS: FIELD-READY</div>
+        <h1>JAMAL FAHADH MOHAMED</h1>
+        <h2>ICT Infrastructure & Information Management Specialist</h2>
+        <p>Supporting teams with resilient infrastructure, data systems, and hands-on technical support in resource-constrained settings across Somaliland & Kenya.</p>
+        <div style="display:flex; gap: 15px;">
+            <a href="mailto:teacherfahadh@gmail.com" class="btn">Establish Comm-Link</a>
+            <a href="cv_2.pdf" class="btn" style="background:transparent; border: 1px solid white;">Dossier (PDF)</a>
         </div>
     </header>
 
-    <div class="container" id="portfolio">
-        <!-- REWRITTEN PROFILE -->
-        <section>
-            <div class="section-title">Mission Profile</div>
-            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 900px;">
-                I am an ICT Specialist with a **BBIT (Hons)** background, focused on designing resilient ICT systems that operate reliably in low-resource and high-risk environments. 
-                I specialize in building infrastructure that survives environmental constraints, unstable connectivity, and intermittent power.
-            </p>
-        </section>
-
-        <!-- CORE COMPETENCIES (TACTICAL) -->
-        <section style="margin-top: 100px;">
-            <div class="section-title">Technical Capabilities</div>
-            <div class="card-grid">
-                <div class="tactical-card">
-                    <i class="fas fa-microchip fa-2x"></i>
-                    <h3>ICT Infrastructure</h3>
-                    <p>Network troubleshooting and optimization for field labs; hardware diagnostics and preventative repair in dusty/high-heat regions.</p>
-                </div>
-                <div class="tactical-card">
-                    <i class="fas fa-database fa-2x"></i>
-                    <h3>Information Management</h3>
-                    <p>Ensuring data integrity and accessibility through structured reporting and digital resource organization (89% LMS implementation success)[cite: 2].</p>
-                </div>
-                <div class="tactical-card">
-                    <i class="fas fa-satellite-dish fa-2x"></i>
-                    <h3>Operational Resilience</h3>
-                    <p>Implemented offline-first workflows and structured backup routines to maintain continuity during connectivity disruptions[cite: 2].</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- RESILIENCE SECTION -->
-        <section style="margin-top: 100px;">
-            <div class="section-title">Operational Resilience</div>
-            <div class="resilience-box">
-                <div class="metric-item">
-                    <div class="metric-label"><span>SYSTEM UPTIME (REMOTE FIELD)</span><span>100%</span></div>
-                    <div class="progress-track"><div class="progress-bar" style="width: 100%;"></div></div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-label"><span>MALWARE DEFENSE INTEGRITY</span><span>100%</span></div>
-                    <div class="progress-track"><div class="progress-bar" style="width: 100%;"></div></div>
-                </div>
-                <div class="metric-item">
-                    <div class="metric-label"><span>DATA ADOPTION RATE (IM SYSTEMS)</span><span>89%</span></div>
-                    <div class="progress-track"><div class="progress-bar" style="width: 89%;"></div></div>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 20px;">
-                    **Field Evidence:** Successfully diagnosed and resolved network outages and hardware failures in Turkana (Kenya) and Hargeisa (Somaliland) under technical pressure[cite: 2].
-                </p>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE -->
-        <section style="margin-top: 100px;">
-            <div class="section-title">Deployment History</div>
-            <div class="timeline-item">
-                <span class="date">2018 — 2025</span>
-                <h3>ICT Operations Lead | Elm High School, Hargeisa</h3>
-                <p>Managed mission-critical infrastructure for hundreds of users; spearheaded digital transformation and maintained 100% lab security[cite: 2].</p>
-            </div>
-            <div class="timeline-item">
-                <span class="date">2017</span>
-                <h3>Field Systems Technician | Turkana School of Tech</h3>
-                <p>Ensured continuous operation of school portals and ICT facilities in a high-dust, remote-connectivity environment[cite: 2].</p>
-            </div>
-        </section>
-
-        <!-- EDUCATION -->
-        <section style="margin-top: 100px;">
-            <div class="section-title">Qualifications</div>
-            <div class="tactical-card">
-                <h3>Bachelor of Business Information Technology (BIT)</h3>
-                <p><strong>Jomo Kenyatta University (JKUAT)</strong> | Second Class Honors (Upper Division)[cite: 2]</p>
-                <p style="color: var(--text-muted);">Applied focus on ICT systems, data management, and business technology integration[cite: 2].</p>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section style="margin-top: 100px; text-align: center;">
-            <div class="section-title" style="border:none; padding:0;">Contact Commander</div>
-            <p style="color: var(--text-muted);">Available for immediate regional deployment.</p>
-            <div style="font-family: 'JetBrains Mono'; font-size: 1.2rem; margin-top: 20px;">
-                +252 636710907 | teacherfahadh@gmail.com[cite: 2]
-            </div>
-            <p style="font-size: 0.8rem; margin-top: 40px; color: #444;">
-                VERIFICATION SOURCE: CV_2.PDF[cite: 2]
-            </p>
-        </section>
+    <!-- 🧭 QUICK PROFILE PANEL -->
+    <div class="quick-panel">
+        <div class="panel-item"><i class="fas fa-map-marker-alt"></i> Hargeisa, Somaliland</div>
+        <div class="panel-item"><i class="fas fa-globe"></i> Somaliland & Kenya Experience</div>
+        <div class="panel-item"><i class="fas fa-envelope"></i> teacherfahadh@gmail.com</div>
+        <div class="panel-item"><i class="fas fa-phone"></i> +252 636710907</div>
+        <div class="panel-item"><i class="fas fa-clock"></i> Availability: Immediate</div>
+        <div class="panel-item"><i class="fas fa-bullseye"></i> NGO & Field Ops Focus[cite: 1]</div>
     </div>
+
+    <!-- 🧠 PROFESSIONAL PROFILE -->
+    <div class="container" id="profile">
+        <div class="section-title">Professional Profile</div>
+        <div style="font-size: 1.2rem; color: var(--text-dim); max-width: 900px; margin-bottom: 40px;">
+            ICT Specialist with a **BBIT (Hons)** background and practical experience supporting ICT systems in educational and operational environments. Proven ability to set up and maintain network infrastructure, manage data systems, and provide technical support in low-resource settings.
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-tools"></i>
+                <h3>Infrastructure Deployment</h3>
+                <ul>
+                    <li>Set up/maintained computer lab networks</li>
+                    <li>Configured routers, switches, & wireless access</li>
+                    <li>Ensured stable connectivity in schools</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>Information Management</h3>
+                <ul>
+                    <li>Organized digital records & reporting</li>
+                    <li>Supported data entry & verification</li>
+                    <li>Improved data accessibility</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-shield"></i>
+                <h3>Technical Support</h3>
+                <ul>
+                    <li>Provided support to staff/students</li>
+                    <li>Diagnosed hardware/software issues</li>
+                    <li>Maintained 100% system uptime</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🚀 FIELD OPERATIONS EXPERIENCE -->
+    <div class="container" id="experience" style="background: #0D1117; border-radius: 12px; padding: 80px 40px;">
+        <div class="section-header">
+            <div class="tag">Field Ops Record</div>
+            <h2 style="font-size: 2.2rem; margin-top: 10px;">Operational Impact</h2>
+        </div>
+
+        <div class="deployment-box">
+            <div style="display:flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin:0;">ICT Infrastructure - Education Deployment</h3>
+                <span style="color:var(--field-orange); font-family: 'JetBrains Mono';">Somaliland</span>
+            </div>
+            <p><strong>Impact:</strong> Supported 80–120+ students and staff; improved system uptime and reliability; enabled consistent access to digital learning.</p>
+            <div style="display:flex; gap: 8px; margin-top: 10px;">
+                <span class="tag" style="background: #21262d; color: #fff;">Windows OS</span>
+                <span class="tag" style="background: #21262d; color: #fff;">Networking</span>
+                <span class="tag" style="background: #21262d; color: #fff;">MS Office</span>
+            </div>
+        </div>
+
+        <div class="deployment-box">
+            <div style="display:flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin:0;">Information Management & Data Support</h3>
+                <span style="color:var(--field-orange); font-family: 'JetBrains Mono';">Kenya / Somaliland</span>
+            </div>
+            <p><strong>Impact:</strong> Improved data accuracy and consistency; reduced data retrieval time; supported better reporting workflows.</p>
+        </div>
+    </div>
+
+    <!-- 🛡️ RESILIENCE & FIELD READINESS -->
+    <div class="container" id="readiness">
+        <div class="section-title">Resilience & Field Readiness</div>
+        <div class="grid">
+            <div class="card" style="border-left: 4px solid var(--field-orange);">
+                <h3>Field Adaptability</h3>
+                <p>Comfortable working in low-resource environments; able to troubleshoot effectively with limited tools.</p>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--field-orange);">
+                <h3>System Reliability</h3>
+                <p>Maintain systems under unstable power/connectivity; implement rigorous backup and recovery practices.</p>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--field-orange);">
+                <h3>Operational Mindset</h3>
+                <p>Focused on practical solutions and quick response to technical issues under pressure.</p>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <span class="metric-value">100+</span>
+                <span class="metric-label">Users Supported</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-value">20+</span>
+                <span class="metric-label">Systems Maintained</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-value">89%</span>
+                <span class="metric-label">IM Adoption Success</span>
+            </div>
+            <div class="metric-card">
+                <span class="metric-value">UPTIME</span>
+                <span class="metric-label">Optimized Stability</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🎓 EDUCATION -->
+    <div class="container">
+        <div class="section-title">Qualifications</div>
+        <div class="card" style="display:flex; justify-content: space-between; align-items: center; border-left: 4px solid var(--success);">
+            <div>
+                <h3 style="margin:0;">Bachelor of Business Information Technology (BBIT), Hons</h3>
+                <p style="color: var(--text-dim); margin: 5px 0;">Jomo Kenyatta University of Agriculture & Technology (JKUAT)</p>
+            </div>
+            <div class="tag" style="background: var(--success); color: white;">Verified</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>JAMAL FAHADH MOHAMED // ICT SPECIALIST // SOMALILAND & KENYA</p>
+        <p style="font-size: 0.7rem;">Data derived from Dossier: cv_2.pdf</p>
+    </footer>
 
 </body>
 </html>
